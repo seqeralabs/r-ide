@@ -1,0 +1,173 @@
+name: Build Server Linux Image Seqera R-IDE
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Original tag to build Seqera R IDE from'
+        required: true
+        type: string
+        default: 'v2025.05.0+496'
+
+jobs:
+  apply-patches:
+    name: Apply Patches and Push Branch
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write           # 'write' access to repository contents
+      pull-requests: write      # 'write' access to pull requests
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Ensure full history is fetched
+
+      - name: Configure Git Author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create New Branch from Tag
+        run: |
+          git fetch --tags
+          git checkout ${{ inputs.tag }}
+          NEW_BRANCH="seqera/${{ inputs.tag }}"
+          echo "NEW_BRANCH=$NEW_BRANCH" >> $GITHUB_ENV
+          git checkout -b $NEW_BRANCH
+
+      - name: Fetch Patches from seqera/test
+        run: |
+          git fetch origin seqera/test
+          git checkout origin/seqera/test -- PATCH
+
+      - name: Apply Patches
+        run: |
+          for patch in PATCH/*.patch; do
+            git apply "$patch" || exit 1
+          done
+
+      - name: Commit and Push Changes
+        run: |
+          git add .
+          git commit -m "Apply patch - seqera customization"
+          git push --set-upstream origin ${{ env.NEW_BRANCH }}
+    outputs:
+      new_branch: ${{ env.NEW_BRANCH }}
+
+  build-server-linux:
+    name: Build Server Linux
+    runs-on: ubuntu-24.04
+
+    strategy:
+      matrix:
+        os: [ noble ]
+        arch: [ arm64, amd64 ]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ needs.apply-patches.outputs.new_branch }}
+
+      - name: Create New Tag and Decide File Name
+        id: create-tag
+        run: |
+          NEW_TAG=$(echo "${{ needs.apply-patches.outputs.new_branch }}" | sed 's/\//-/g')
+          echo "new_tag=$NEW_TAG" >> $GITHUB_ENV
+          git tag $NEW_TAG
+          git push origin $NEW_TAG
+          
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+          echo "upload_file_name=${NEW_TAG}-${{matrix.os}}-${{matrix.ARCH}}.deb" >> $GITHUB_OUTPUT
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Install Dependencies
+        run: |
+          cd dependencies/linux
+          chmod +x ./install-dependencies-debian
+          ./install-dependencies-debian
+
+      - name: Set up Environment Variables
+        run: |
+          echo "PACKAGE_OS=${{ matrix.os }}" >> $GITHUB_ENV
+          echo "ARCH=${{ matrix.arch }}" >> $GITHUB_ENV
+
+      - name: Build Server Package
+        run: |
+          cd package/linux
+          chmod +x ./make-server-package
+          ./make-server-package DEB clean
+
+      - name: Locate .deb File
+        id: locate-deb
+        run: |
+          pwd
+          ls -la package/linux/build-Server-DEB
+          DEB_FILE=$(find package/linux/build-Server-DEB -maxdepth 1 -name "*.deb" -type f | tr '\n' ' ')
+          if [ -z "$DEB_FILE" ]; then
+            echo "Error: No .deb file found!"
+            exit 1
+          fi
+          echo $DEB_FILE
+          echo "binary_path=${DEB_FILE}" >> $GITHUB_OUTPUT
+
+      - name: Upload .deb File
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.create-tag.outputs.upload_file_name }}
+          path: ${{ steps.locate-deb.outputs.binary_path }}
+          if-no-files-found: error
+          overwrite: true
+    outputs:
+      binary_path: ${{ steps.locate-deb.outputs.binary_path }}
+      new_tag: ${{ steps.create-tag.outputs.new_tag }}
+      upload_file_name: ${{ steps.create-tag.outputs.upload_file_name }}
+
+  create-release:
+    name: "Create Server Prerelease"
+    needs: [ build-server-linux ]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Create GitHub Release
+        id: create-gh-release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ needs.build-server-linux.outputs.new_tag }}
+          release_name: Release ${{ needs.build-server-linux.outputs.new_tag }}
+          body: |
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Debug Create Release
+        run: |
+          echo "Upload URL: ${{ steps.create-gh-release.outputs.upload_url }}"
+          echo "Tag Name: ${{ needs.build-server-linux.outputs.new_tag }}"
+      - name: Locate .deb File
+        id: locate-deb-file
+        run: |
+          DEB_FILE=$(find . -name "*.deb" -type f | tr '\n' ' ')
+          if [ -z "$DEB_FILE" ]; then
+            echo "Error: No .deb file found!"
+            exit 1
+          fi
+          echo "file_path=${DEB_FILE}" >> $GITHUB_OUTPUT
+
+      - name: Upload .deb File to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create-gh-release.outputs.upload_url }}
+          asset_name: ${{ needs.build-server-linux.outputs.upload_file_name }}
+          asset_path: ${{ steps.locate-deb-file.outputs.file_path }}
+          asset_content_type: application/vnd.debian.binary-package
