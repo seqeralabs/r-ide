@@ -1,0 +1,118 @@
+name: FAKE Build Server Linux Image Seqera R-IDE
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Branch to build from and new tag'
+        required: true
+        type: string
+        default: 'seqera/test'
+
+jobs:
+  build-server-linux:
+    name: Build Server Linux
+    runs-on: ubuntu-24.04
+
+    strategy:
+      matrix:
+        os: [ noble ]
+        arch: [ arm64 ]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.tag }}
+
+      - name: Create New Tag
+        id: create-tag
+        run: |
+          NEW_TAG=$(echo "${{ inputs.tag }}" | sed 's/\//-/g')
+          echo "new_tag=$NEW_TAG" >> $GITHUB_ENV
+          git tag $NEW_TAG
+          git push origin $NEW_TAG
+          
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+          echo "upload_file_name=${NEW_TAG}.deb" >> $GITHUB_OUTPUT
+
+      - name: Ensure fallocate is available
+        run: |
+          if ! command -v fallocate &> /dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y util-linux
+          fi
+
+      - name: Build Server Package
+        run: |
+          mkdir -p package/linux/build-Server-DEB
+          fallocate -l 1M package/linux/build-Server-DEB/fake-package.deb
+
+      - name: Locate .deb File
+        id: locate-deb
+        run: |
+          DEB_FILE=$(find package/linux/build-Server-DEB -name "*.deb" -type f | tr '\n' ' ')
+          if [ -z "$DEB_FILE" ]; then
+            echo "Error: No .deb file found!"
+            exit 1
+          fi
+          echo "binary_path=${DEB_FILE}" >> $GITHUB_OUTPUT
+
+      - name: Upload .deb File
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.create-tag.outputs.upload_file_name }}
+          path: ${{ steps.locate-deb.outputs.binary_path }}
+          if-no-files-found: error
+          overwrite: true
+    outputs:
+      binary_path: ${{ steps.locate-deb.outputs.binary_path }}
+      new_tag: ${{ steps.create-tag.outputs.new_tag }}
+      upload_file_name: ${{ steps.create-tag.outputs.upload_file_name }}
+
+  create-release:
+    name: "Create Server Prerelease"
+    needs: [build-server-linux]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Create GitHub Release
+        id: create-gh-release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ needs.build-server-linux.outputs.new_tag }}
+          release_name: Release ${{ needs.build-server-linux.outputs.new_tag }}
+          body: |
+            THIS IS JUST A TEST OF WORKFLOW
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Debug Create Release
+        run: |
+          echo "Upload URL: ${{ steps.create-gh-release.outputs.upload_url }}"
+          echo "Tag Name: ${{ needs.build-server-linux.outputs.new_tag }}"
+      - name: Locate .deb File
+        id: locate-deb-file
+        run: |
+          DEB_FILE=$(find . -name "*.deb" -type f | tr '\n' ' ')
+          if [ -z "$DEB_FILE" ]; then
+            echo "Error: No .deb file found!"
+            exit 1
+          fi
+          echo "file_path=${DEB_FILE}" >> $GITHUB_OUTPUT
+
+      - name: Upload .deb File to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create-gh-release.outputs.upload_url }}
+          asset_name: ${{ needs.build-server-linux.outputs.upload_file_name }}
+          asset_path: ${{ steps.locate-deb-file.outputs.file_path }}
+          asset_content_type: application/vnd.debian.binary-package

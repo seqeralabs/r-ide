@@ -209,7 +209,6 @@ set +x
 if has-program ninja || has-program ninja-build
 then
    CMAKE_GENERATOR="Ninja"
-   MAKEFLAGS="-w dupbuild=warn ${MAKEFLAGS}"
 else
    CMAKE_GENERATOR="Unix Makefiles"
 fi
