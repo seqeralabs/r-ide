@@ -81,6 +81,7 @@ jobs:
           
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
           echo "upload_file_name=${NEW_TAG}-${{matrix.os}}-${{matrix.ARCH}}.deb" >> $GITHUB_OUTPUT
+          echo $GITHUB_OUTPUT
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
@@ -115,6 +116,9 @@ jobs:
           echo $DEB_FILE
           echo "binary_path=${DEB_FILE}" >> $GITHUB_OUTPUT
 
+      - name: Debug New Tag
+        run: |
+          echo "New Tag: ${{ steps.create-tag.outputs.new_tag }}"
       - name: Upload .deb File
         uses: actions/upload-artifact@v4
         with:
@@ -137,7 +141,9 @@ jobs:
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
-
+      - name: Debug Create Release
+        run: |
+          echo "Tag Name: ${{ needs.build-server-linux.outputs.new_tag }}"
       - name: Create GitHub Release
         id: create-gh-release
         uses: actions/create-release@v1
