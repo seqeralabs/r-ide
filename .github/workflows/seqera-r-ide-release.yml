@@ -58,6 +58,7 @@ jobs:
   build-server-linux:
     name: Build Server Linux
     runs-on: ubuntu-24.04
+    needs: [ apply-patches ]
 
     strategy:
       matrix:
