@@ -36,10 +36,10 @@ jobs:
           echo "NEW_BRANCH=$NEW_BRANCH" >> $GITHUB_ENV
           git checkout -b $NEW_BRANCH
 
-      - name: Fetch Patches from seqera/test
+      - name: Fetch Patches from default branch
         run: |
-          git fetch origin seqera/test
-          git checkout origin/seqera/test -- PATCH
+          git fetch origin ${{ github.event.repository.default_branch }}
+          git checkout origin/${{ github.event.repository.default_branch }} -- PATCH
 
       - name: Apply Patches
         run: |
