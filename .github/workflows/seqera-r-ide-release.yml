@@ -92,6 +92,15 @@ jobs:
         with:
           ref: ${{ needs.apply-patches.outputs.new_tag }}
 
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Install Dependencies
+        run: |
+          cd dependencies/linux
+          chmod +x ./install-dependencies-debian
+          ./install-dependencies-debian
+
       - name: Set up Environment Variables
         run: |
           echo "PACKAGE_OS=${{ matrix.os }}" >> $GITHUB_ENV
