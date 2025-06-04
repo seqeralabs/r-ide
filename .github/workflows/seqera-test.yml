@@ -1,4 +1,4 @@
-name: Build Server Linux Image Seqera R-IDE
+name: FAKE Build Server Linux Image Seqera R-IDE
 
 on:
   workflow_dispatch:
@@ -84,11 +84,17 @@ jobs:
           echo "PACKAGE_OS=${{ matrix.os }}" >> $GITHUB_ENV
           echo "ARCH=${{ matrix.arch }}" >> $GITHUB_ENV
 
-      - name: Build Server Package
+      - name: Ensure fallocate is available
         run: |
-          cd package/linux
-          chmod +x ./make-server-package
-          ./make-server-package DEB clean
+          if ! command -v fallocate &> /dev/null; then
+          sudo apt-get update
+          sudo apt-get install -y util-linux
+          fi
+
+      - name: Build Server Package MOCK
+        run: |
+          mkdir -p package/linux/build-Server-DEB
+          fallocate -l 1M package/linux/build-Server-DEB/fake-package.deb
 
       - name: Locate .deb File
         id: locate-deb
