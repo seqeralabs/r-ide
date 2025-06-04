@@ -11,7 +11,7 @@ on:
 
 jobs:
   apply-patches:
-    name: Apply Patches and Create Tag
+    name: Apply Patches and Create Release
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -61,8 +61,21 @@ jobs:
           git tag $NEW_TAG
           git push origin $NEW_TAG
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        id: create-release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.create-tag.outputs.new_tag }}
+          release_name: Release ${{ steps.create-tag.outputs.new_tag }}
+          body: |
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
       new_tag: ${{ steps.create-tag.outputs.new_tag }}
+      upload_url: ${{ steps.create-release.outputs.upload_url }}
 
   build-server-linux:
     name: Build Server Linux
@@ -81,20 +94,12 @@ jobs:
 
       - name: Set up Environment Variables
         run: |
-          echo "PACKAGE_OS=${{ matrix.os }}" >> $GITHUB_ENV
           echo "ARCH=${{ matrix.arch }}" >> $GITHUB_ENV
 
-      - name: Ensure fallocate is available
-        run: |
-          if ! command -v fallocate &> /dev/null; then
-          sudo apt-get update
-          sudo apt-get install -y util-linux
-          fi
-
-      - name: Build Server Package MOCK
+      - name: Build Server Package
         run: |
           mkdir -p package/linux/build-Server-DEB
-          fallocate -l 1M package/linux/build-Server-DEB/fake-package.deb
+          fallocate -l 1M package/linux/build-Server-DEB/fake-package-${{ matrix.arch }}.deb
 
       - name: Locate .deb File
         id: locate-deb
@@ -102,65 +107,16 @@ jobs:
           DEB_FILE=$(find package/linux/build-Server-DEB -maxdepth 1 -name "*.deb" -type f | tr '\n' ' ')
           if [ -z "$DEB_FILE" ]; then
             echo "Error: No .deb file found!"
-              exit 1
+            exit 1
           fi
-          if [ "${{ matrix.arch }}" = "amd64" ]; then
-            echo "file_amd64=$DEB_FILE" >> $GITHUB_OUTPUT
-          elif [ "${{ matrix.arch }}" = "arm64" ]; then
-            echo "file_arm64=$DEB_FILE" >> $GITHUB_OUTPUT
-          else
-            echo "Error: Unsupported architecture '${{ matrix.arch }}'!"
-          exit 1
-          fi
+          echo "deb_file=$DEB_FILE" >> $GITHUB_OUTPUT
 
-      - name: Upload .deb File
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.arch }}.deb
-          path: ${{ matrix.arch == 'amd64' && steps.locate-deb.outputs.file_amd64 || steps.locate-deb.outputs.file_arm64 }}
-    outputs:
-      file_${{ matrix.arch }}: ${{ steps.locate-deb.outputs.file_${{ matrix.arch }} }}
-
-  create-release:
-    name: Create Server Prerelease
-    needs: [build-server-linux]
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-      pull-requests: write
-
-    steps:
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-
-      - name: Create GitHub Release
-        id: create-gh-release
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ needs.apply-patches.outputs.new_tag }}
-          release_name: Release ${{ needs.apply-patches.outputs.new_tag }}
-          body: |
-          draft: false
-          prerelease: false
+      - name: Upload .deb File to Release
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload arm64 File to Release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         with:
-          upload_url: ${{ steps.create-gh-release.outputs.upload_url }}
-          asset_name: arm64.deb
-          asset_path: ${{ needs.build-server-linux.outputs.file_arm64 }}
-          asset_content_type: application/vnd.debian.binary-package
-
-      - name: Upload amd64 File to Release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create-gh-release.outputs.upload_url }}
-          asset_name: amd64.deb
-          asset_path: ${{ needs.build-server-linux.outputs.file_amd64 }}
+          upload_url: ${{ needs.apply-patches.outputs.upload_url }}
+          asset_name: ${{ matrix.arch }}.deb
+          asset_path: ${{ steps.locate-deb.outputs.deb_file }}
           asset_content_type: application/vnd.debian.binary-package
