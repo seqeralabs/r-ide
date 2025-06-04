@@ -108,6 +108,8 @@ jobs:
 
       - name: Build Server Package
         run: |
+          export PACKAGE_OS=${{ matrix.os }}
+          export ARCH=${{ matrix.arch }}
           cd package/linux
           chmod +x ./make-server-package
           ./make-server-package DEB clean
@@ -115,6 +117,7 @@ jobs:
       - name: Locate .deb File
         id: locate-deb
         run: |
+          ls -ls package/linux/build-Server-DEB
           DEB_FILE=$(find package/linux/build-Server-DEB -maxdepth 1 -name "*.deb" -type f | tr '\n' ' ')
           if [ -z "$DEB_FILE" ]; then
             echo "Error: No .deb file found!"
