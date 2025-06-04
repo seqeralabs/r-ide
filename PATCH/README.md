@@ -12,6 +12,7 @@ automatically by the `seqera-r-ide-release` workflow.
 2. **Workflow Compatibility**:
     - Patches must be structured in a way that allows them to be easily applied by the `seqera-r-ide-release` workflow.
     - Avoid adding changes that could cause conflicts or require manual intervention during the patching process.
+    - To ensure the order of patches, please follow the file naming convention `seqera__<number>_<description>.patch`
 
 3. **Content**:
     - Include only modifications that are essential for the functionality or customization of the Seqera R-IDE.
