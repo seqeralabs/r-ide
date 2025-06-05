@@ -8,6 +8,7 @@ automatically by the `seqera-r-ide-release` workflow.
 1. **Purpose**:
     - Patches should only include changes that are necessary to customize the base version of the repository for the Seqera R-IDE.
     - Ensure the changes are meaningful and provide a clear difference from the base version.
+    - Default branch (`seqera/main`) should contain both all changes from patch files and patch files themselves.
 
 2. **Workflow Compatibility**:
     - Patches must be structured in a way that allows them to be easily applied by the `seqera-r-ide-release` workflow.
