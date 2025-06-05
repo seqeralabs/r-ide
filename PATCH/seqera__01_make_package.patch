@@ -1,0 +1,16 @@
+Index: package/linux/make-package
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package/linux/make-package b/package/linux/make-package
+--- a/package/linux/make-package	(revision 68a2e16bf7940279e193272a39f954ed050a067e)
++++ b/package/linux/make-package	(revision 063ffc816b3185988dec41c2dff7ef22affe25aa)
+@@ -209,7 +209,6 @@
+ if has-program ninja || has-program ninja-build
+ then
+    CMAKE_GENERATOR="Ninja"
+-   MAKEFLAGS="-w dupbuild=warn ${MAKEFLAGS}"
+ else
+    CMAKE_GENERATOR="Unix Makefiles"
+ fi
