@@ -83,7 +83,8 @@ jobs:
     strategy:
       matrix:
         arch: [ arm64, amd64 ]
-    runs-on: ${{ matrix.arch == 'arm64' && 'ubuntu-24.04-arm64' || 'ubuntu-24.04' }}
+
+    runs-on: ${{ matrix.arch == 'arm64' && 'ubuntu-22.04-arm64' || 'ubuntu-22.04' }}
     steps:
       - name: Check Architecture
         run: uname -m
@@ -92,24 +93,14 @@ jobs:
         with:
           ref: ${{ needs.apply-patches.outputs.new_tag }}
 
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
-
       - name: Install Dependencies
         run: |
           cd dependencies/linux
           chmod +x ./install-dependencies-debian
           ./install-dependencies-debian
 
-      - name: Set up Environment Variables
-        run: |
-          echo "PACKAGE_OS=${{ matrix.os }}" >> $GITHUB_ENV
-          echo "ARCH=${{ matrix.arch }}" >> $GITHUB_ENV
-
       - name: Build Server Package
         run: |
-          export PACKAGE_OS=${{ matrix.os }}
-          export ARCH=${{ matrix.arch }}
           cd package/linux
           chmod +x ./make-server-package
           ./make-server-package DEB clean
