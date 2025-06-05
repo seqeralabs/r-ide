@@ -79,15 +79,13 @@ jobs:
 
   build-server-linux:
     name: Build Server Linux
-    needs: [apply-patches]
+    needs: [ apply-patches ]
     strategy:
       matrix:
         arch: [ arm64, amd64 ]
 
     runs-on: ${{ matrix.arch == 'arm64' && 'ubuntu-24.04-arm' || 'ubuntu-24.04' }}
     steps:
-      - name: Check Architecture
-        run: uname -m
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
@@ -108,7 +106,6 @@ jobs:
       - name: Locate .deb File
         id: locate-deb
         run: |
-          ls -ls package/linux/build-Server-DEB
           DEB_FILE=$(find package/linux/build-Server-DEB -maxdepth 1 -name "*.deb" -type f | tr '\n' ' ')
           if [ -z "$DEB_FILE" ]; then
             echo "Error: No .deb file found!"
