@@ -184,7 +184,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Quarto create project failed"
      */
-    @DefaultMessage("Quarto create project failed")
+    @DefaultMessage("create project failed")
     @Key("projectFailedMessage")
     String projectFailedMessage();
 
@@ -752,7 +752,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Quarto Book"
      */
-    @DefaultMessage("Quarto Book")
+    @DefaultMessage("Book")
     @Key("quartoBookTitle")
     String quartoBookTitle();
 
@@ -761,7 +761,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create a new Quarto book project"
      */
-    @DefaultMessage("Create a new Quarto book project")
+    @DefaultMessage("Create a new book project")
     @Key("quartoBookSubTitle")
     String quartoBookSubTitle();
 
@@ -770,7 +770,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create Quarto Book"
      */
-    @DefaultMessage("Create Quarto Book")
+    @DefaultMessage("Create Book")
     @Key("quartoBookPageCaption")
     String quartoBookPageCaption();
 
@@ -779,7 +779,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Quarto Manuscript"
      */
-    @DefaultMessage("Quarto Manuscript")
+    @DefaultMessage("Manuscript")
     @Key("quartoManuscriptTitle")
     String quartoManuscriptTitle();
 
@@ -788,7 +788,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create a new Quarto manuscript project"
      */
-    @DefaultMessage("Create a new Quarto manuscript project")
+    @DefaultMessage("Create a new manuscript project")
     @Key("quartoManuscriptSubTitle")
     String quartoManuscriptSubTitle();
 
@@ -797,7 +797,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create Quarto Manuscript"
      */
-    @DefaultMessage("Create Quarto Manuscript")
+    @DefaultMessage("Create Manuscript")
     @Key("quartoManuscriptPageCaption")
     String quartoManuscriptPageCaption();
 
@@ -807,7 +807,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Quarto Project"
      */
-    @DefaultMessage("Quarto Project")
+    @DefaultMessage("Project")
     @Key("quartoProjectTitle")
     String quartoProjectTitle();
 
@@ -816,7 +816,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create a new Quarto project"
      */
-    @DefaultMessage("Create a new Quarto project")
+    @DefaultMessage("Create a new project")
     @Key("quartoProjectSubTitle")
     String quartoProjectSubTitle();
 
@@ -825,7 +825,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create Quarto Project"
      */
-    @DefaultMessage("Create Quarto Project")
+    @DefaultMessage("Create Project")
     @Key("quartoProjectPageCaption")
     String quartoProjectPageCaption();
 
@@ -951,7 +951,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Quarto Blog"
      */
-    @DefaultMessage("Quarto Blog")
+    @DefaultMessage("Blog")
     @Key("quartoBlogTitle")
     String quartoBlogTitle();
 
@@ -960,7 +960,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create a new Quarto blog project"
      */
-    @DefaultMessage("Create a new Quarto blog project")
+    @DefaultMessage("Create a new blog project")
     @Key("quartoBlogSubTitle")
     String quartoBlogSubTitle();
 
@@ -969,7 +969,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create Quarto Blog"
      */
-    @DefaultMessage("Create Quarto Blog")
+    @DefaultMessage("Create Blog")
     @Key("quartoBlogPageCaption")
     String quartoBlogPageCaption();
 
@@ -978,7 +978,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Quarto Website"
      */
-    @DefaultMessage("Quarto Website")
+    @DefaultMessage("Website")
     @Key("quartoWebsiteTitle")
     String quartoWebsiteTitle();
 
@@ -987,7 +987,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create a new Quarto website project"
      */
-    @DefaultMessage("Create a new Quarto website project")
+    @DefaultMessage("Create a new website project")
     @Key("quartoWebsiteSubTitle")
     String quartoWebsiteSubTitle();
 
@@ -996,7 +996,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create Quarto Website"
      */
-    @DefaultMessage("Create Quarto Website")
+    @DefaultMessage("Create Website")
     @Key("quartoWebsitePageCaption")
     String quartoWebsitePageCaption();
 
@@ -1005,7 +1005,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Shiny Application"
      */
-    @DefaultMessage("Shiny Application")
+    @DefaultMessage("Application")
     @Key("shinyApplicationTitle")
     String shinyApplicationTitle();
 
@@ -1014,7 +1014,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create a new Shiny application"
      */
-    @DefaultMessage("Create a new Shiny application")
+    @DefaultMessage("Create a new application")
     @Key("shinyApplicationSubTitle")
     String shinyApplicationSubTitle();
 
@@ -1023,7 +1023,7 @@ public interface StudioClientProjectConstants extends com.google.gwt.i18n.client
      *
      * @return translated "Create Shiny Application"
      */
-    @DefaultMessage("Create Shiny Application")
+    @DefaultMessage("Create Application")
     @Key("shinyApplicationPageCaption")
     String shinyApplicationPageCaption();
 

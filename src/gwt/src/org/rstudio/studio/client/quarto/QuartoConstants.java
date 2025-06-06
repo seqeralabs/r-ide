@@ -51,7 +51,7 @@ public interface QuartoConstants extends Messages {
      *
      * @return the translated value
      */
-    @DefaultMessage("New Quarto Document")
+    @DefaultMessage("New Document")
     @Key("newQuartoDocumentCaption")
     String newQuartoDocumentCaption();
 

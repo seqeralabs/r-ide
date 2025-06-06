@@ -1099,8 +1099,8 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         rebindable="false"/>
 
    <cmd id="newRPlumberDoc"
-        menuLabel="Plumber _API..."
-        desc="Create a new Plumber API"
+        menuLabel="_API..."
+        desc="Create a new API"
         rebindable="false"/>
 
     <cmd id="rcppHelp"
@@ -1122,13 +1122,13 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         rebindable="false"/>
 
    <cmd id="newQuartoDoc"
-        menuLabel="_Quarto Document..."
-        desc="Create a new Quarto document"
+        menuLabel="_Q Document..."
+        desc="Create a new document"
         rebindable="false"/>
       
    <cmd id="newQuartoPres"
-        menuLabel="_Quarto Presentation..."
-        desc="Create a new Quarto presentation"
+        menuLabel="_Q Presentation..."
+        desc="Create a new presentation"
         rebindable="false"/>
         
    <cmd id="serveQuartoSite"
@@ -1137,8 +1137,8 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         rebindable="false"/>
 
    <cmd id="newRShinyApp"
-        menuLabel="Shiny _Web App..."
-        desc="Create a new Shiny web application"
+        menuLabel="_Web App..."
+        desc="Create a new web application"
         rebindable="false"/>
 
    <cmd id="newRHTMLDoc"
@@ -2276,8 +2276,8 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         context="help"/>
 
     <cmd id="openRStudioIDECheatSheet"
-         menuLabel="_RStudio IDE Cheat Sheet"
-         desc="RStudio IDE cheat sheet"
+         menuLabel="_RIDE Cheat Sheet"
+         desc="IDE cheat sheet"
          context="help"/>
 
     <cmd id="openDataVisualizationCheatSheet"
@@ -2789,7 +2789,7 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         rebindable="false"/>
 
    <cmd id="saveHtmlPreviewAs"
-        menuLabel="File on RStudio Server..."
+        menuLabel="File on Server..."
         buttonLabel="Save As"
         desc="Save the page to another location"
         rebindable="false"/>
@@ -3169,7 +3169,7 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
 
    <cmd id="versionControlHelp"
         menuLabel="_Using Version Control"
-        desc="Help on using version control with RStudio"
+        desc="Help on using version control"
         context="help"/>
 
    <cmd id="versionControlShowRsaKey"
@@ -3346,14 +3346,15 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         desc="Edit code snippets"
         windowMode="main"/>
 
+
    <cmd id="checkForUpdates"
-        label="Check for RStudio Updates"
+        label="Check for Updates"
         menuLabel="Check for _Updates"
         windowMode="main"
         visible="false"/>
 
    <cmd id="helpUsingRStudio"
-        menuLabel="RStudio _Docs"
+        menuLabel="_Docs"
         context="help"
         windowMode="main"/>
 
@@ -3604,8 +3605,8 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         windowMode="main"/>
 
    <cmd id="showAboutDialog"
-        label="About RStudio..."
-        menuLabel="A_bout RStudio"
+        label="About..."
+        menuLabel="A_bout"
         rebindable="false"
         windowMode="main"/>
 
@@ -3626,7 +3627,7 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         rebindable="false"/>
 
    <cmd id="rstudioCommunityForum"
-        menuLabel="RStudio Community _Forum"
+        menuLabel="Community _Forum"
         rebindable="false"
         windowMode="main"/>
 
@@ -3636,7 +3637,7 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         windowMode="main"/>
 
     <cmd id="rstudioLicense"
-        menuLabel="RStudio _License"
+        menuLabel="_License"
         visible="false"
         windowMode="main"
         rebindable="false"/>
@@ -3863,7 +3864,7 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         desc="Execute the remainder of the current function or loop"/>
 
    <cmd id="debugHelp"
-        label="Show Guide on Debugging with RStudio"
+        label="Show Guide on Debugging"
         menuLabel="Debugging _Help"
         desc="Guide to debugging features"
         context="help"
@@ -3932,7 +3933,7 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         desc="Opens current profile in a web browser"/>
 
    <cmd id="profileHelp"
-        label="Show Guide on Profiling with RStudio"
+        label="Show Guide on Profiling with "
         menuLabel="Profiling _Help"
         desc="Guide to profiling features"
         context="help"
@@ -3945,16 +3946,16 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         desc="Reload the Shiny application"/>
 
    <cmd id="shinyRunInPane"
-        label="Run Shiny Application in New Pane"
+        label="Run in Viewer Pane"
         menuLabel="Run in Viewer Pane"
-        desc="Run the Shiny application in an RStudio pane"
+        desc="Run in Viewer Pane"
         checkable="true"
         windowMode="background"/>
 
    <cmd id="shinyRunInViewer"
-        label="Run Shiny Application in RStudio Viewer"
+        label="Run in Window"
         menuLabel="Run in Window"
-        desc="Run the Shiny application in an RStudio viewer window"
+        desc="Run in Window"
         checkable="true"
         windowMode="background"/>
 
@@ -3984,29 +3985,29 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         desc="Compare test results for Shiny application"/>
 
    <cmd id="reloadPlumberAPI"
-        label="Reload Plumber API"
+        label="Reload API"
         menuLabel="Reload"
         buttonLabel=""
-        desc="Reload the Plumber API"/>
+        desc="Reload the API"/>
 
    <cmd id="plumberRunInPane"
-        label="Run Plumber API in New Pane"
+        label="Run API in New Pane"
         menuLabel="Run in Viewer Pane"
-        desc="Run the Plumber API in an RStudio pane"
+        desc="Run API in New Pane"
         checkable="true"
         windowMode="background"/>
 
    <cmd id="plumberRunInViewer"
-        label="Run Plumber API in RStudio Viewer"
+        label="Run API in Viewer"
         menuLabel="Run in Window"
-        desc="Run the Plumber API in an RStudio viewer window"
+        desc="Run the API in an viewer window"
         checkable="true"
         windowMode="background"/>
 
    <cmd id="plumberRunInBrowser"
-        label="Run Plumber API in Web Browser"
+        label="Run API in Web Browser"
         menuLabel="Run External"
-        desc="Run the Plumber API in the system's default Web browser"
+        desc="Run the API in the system's default Web browser"
         checkable="true"
         windowMode="background"/>
 
@@ -4088,9 +4089,9 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
          windowMode="main"/>
 
     <cmd id="sparkHelp"
-         menuLabel="Using Spark with RStudio"
+         menuLabel="Using Spark"
          buttonLabel=""
-         desc="Help on using Spark with RStudio"
+         desc="Help on using Spark"
          windowMode="main"/>
 
     <cmd id="startJob"
@@ -4240,7 +4241,7 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         label="Sign Out"
         buttonLabel=""
         menuLabel="Sign Ou_t"
-        desc="Sign out from RStudio"
+        desc="Sign out"
         windowMode="main"/>
 
    <cmd id="loadServerHome"
@@ -4273,7 +4274,7 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         rebindable="false"/>
 
    <cmd id="crashDesktopApplication"
-        menuLabel="Crash RStudio Desktop (DA_NGER)"
+        menuLabel="Crash Desktop (DA_NGER)"
         rebindable="false"/>
 
    <cmd id="showCommandPalette"
@@ -4306,5 +4307,5 @@ See `/src/gwt/tools/i18n-helpers/README.md`.
         label="Show Splash Screen" />
          
    <cmd id="copyRStudioVersion"
-        label="Copy RStudio Version" />
+        label="Copy Version" />
 </commands>

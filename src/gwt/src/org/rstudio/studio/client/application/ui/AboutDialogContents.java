@@ -69,30 +69,12 @@ public class AboutDialogContents extends Composite
 
       // a11y
       productInfo.getElement().setId("productinfo");
-      gplLinkLabel.getElement().setId("gplLinkLabel");
-      Roles.getLinkRole().setAriaDescribedbyProperty(gplLink.getElement(), Id.of(gplLinkLabel.getElement()));
 
       userAgentLabel.setText(Window.Navigator.getUserAgent() + quartoDetails);
       buildLabel.setText(
            "\"" + info.release_name + "\" " + info.build_type + " (" + StringUtil.substring(info.commit, 0, 8) + ", " +
            info.date + constants_.buildLabelForText() + info.os);
       productName.setText(editionInfo.editionName());
-      copyrightYearLabel.setText("2009-" + info.copyright_year);
-
-      // Warn that dailies and previews aren't supported
-      if (!info.build_type.equals("Release")) {
-         supportNotice.setText(
-            constants_.buildTypeThisText() +
-            info.build_type +
-            " " + constants_.buildOfText() +
-            editionInfo.editionName() +
-            " " + constants_.supportNoticeText()
-         );
-      }
-      else
-      {
-         preReleaseRibbon.setVisible(false);
-      }
 
 
       showNoticelink_.setClickHandler(() ->
@@ -115,8 +97,6 @@ public class AboutDialogContents extends Composite
 
       if (editionInfo.proLicense())
       {
-         // no need to show GPL notice in pro edition
-         gplNotice.setVisible(false);
 
          if (Desktop.hasDesktopFrame())
          {
@@ -142,16 +122,11 @@ public class AboutDialogContents extends Composite
    @UiField InlineLabel versionBuildLabel;
    @UiField InlineLabel userAgentLabel;
    @UiField InlineLabel buildLabel;
-   @UiField InlineLabel copyrightYearLabel;
    @UiField HyperlinkLabel showNoticelink_;
-   @UiField HTMLPanel gplNotice;
    @UiField HTMLPanel licenseLabel;
    @UiField HTMLPanel preReleaseRibbon;
    @UiField TextArea licenseBox;
    @UiField Label productName;
    @UiField HTMLPanel productInfo;
-   @UiField InlineLabel supportNotice;
-   @UiField Anchor gplLink;
-   @UiField Label gplLinkLabel;
    private static final StudioClientApplicationConstants constants_ = GWT.create(StudioClientApplicationConstants.class);
 }

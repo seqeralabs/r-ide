@@ -147,7 +147,7 @@ public interface ViewsSourceConstants extends com.google.gwt.i18n.client.Message
      *
      * @return translated "Shiny Web Applications"
      */
-    @DefaultMessage("Shiny Web Applications")
+    @DefaultMessage("Web Applications")
     @Key("shinyWebApplications")
     String shinyWebApplications();
 
@@ -318,7 +318,7 @@ public interface ViewsSourceConstants extends com.google.gwt.i18n.client.Message
      *
      * @return translated "New Shiny Web Application"
      */
-    @DefaultMessage("New Shiny Web Application")
+    @DefaultMessage("New Web Application")
     @Key("newShinyWebApplication")
     String newShinyWebApplication();
 

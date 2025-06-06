@@ -175,27 +175,27 @@ public interface CmdConstants extends Constants {
     String newRMarkdownDocDesc();
     
     // newQuartoDoc
-    @DefaultStringValue("_Quarto Document...") // $NON-NLS-1$
+    @DefaultStringValue("_Q Document...") // $NON-NLS-1$
     String newQuartoDocMenuLabel();
-    @DefaultStringValue("Create a new Quarto document") // $NON-NLS-1$
+    @DefaultStringValue("Create a new document") // $NON-NLS-1$
     String newQuartoDocDesc();
     
     // newQuartoPres
-    @DefaultStringValue("_Quarto Presentation...") // $NON-NLS-1$
+    @DefaultStringValue("_Q Presentation...") // $NON-NLS-1$
     String newQuartoPresMenuLabel();
-    @DefaultStringValue("Create a new Quarto presentation") // $NON-NLS-1$
+    @DefaultStringValue("Create a new presentation") // $NON-NLS-1$
     String newQuartoPresDesc();
     
     // serveQuartoSite
     @DefaultStringValue("_Preview Site") // $NON-NLS-1$
     String serveQuartoSiteMenuLabel();
-    @DefaultStringValue("Run development server for Quarto site") // $NON-NLS-1$
+    @DefaultStringValue("Run development server for site") // $NON-NLS-1$
     String serveQuartoSiteDesc();
     
     // newRShinyApp
-    @DefaultStringValue("Shiny _Web App...") // $NON-NLS-1$
+    @DefaultStringValue("_Web App...") // $NON-NLS-1$
     String newRShinyAppMenuLabel();
-    @DefaultStringValue("Create a new Shiny web application") // $NON-NLS-1$
+    @DefaultStringValue("Create a new web application") // $NON-NLS-1$
     String newRShinyAppDesc();
     
     // newRHTMLDoc
@@ -1663,9 +1663,9 @@ public interface CmdConstants extends Constants {
     String authoringRPresentationsHelpDesc();
     
     // openRStudioIDECheatSheet
-    @DefaultStringValue("_RStudio IDE Cheat Sheet") // $NON-NLS-1$
+    @DefaultStringValue("_RIDE Cheat Sheet") // $NON-NLS-1$
     String openRStudioIDECheatSheetMenuLabel();
-    @DefaultStringValue("RStudio IDE cheat sheet") // $NON-NLS-1$
+    @DefaultStringValue("IDE cheat sheet") // $NON-NLS-1$
     String openRStudioIDECheatSheetDesc();
     
     // openDataVisualizationCheatSheet
@@ -1723,9 +1723,9 @@ public interface CmdConstants extends Constants {
     String openRMarkdownReferenceGuideDesc();
     
     // openShinyCheatSheet
-    @DefaultStringValue("Web Applications with _shiny") // $NON-NLS-1$
+    @DefaultStringValue("Web Applications with _s") // $NON-NLS-1$
     String openShinyCheatSheetMenuLabel();
-    @DefaultStringValue("Build web applications with Shiny") // $NON-NLS-1$
+    @DefaultStringValue("Build web applications") // $NON-NLS-1$
     String openShinyCheatSheetDesc();
     
     // browseCheatSheets
@@ -1981,9 +1981,9 @@ public interface CmdConstants extends Constants {
     String touchRMarkdownDocDesc();
     
     // touchQuartoDoc
-    @DefaultStringValue("_Quarto Document") // $NON-NLS-1$
+    @DefaultStringValue("_Q Document") // $NON-NLS-1$
     String touchQuartoDocMenuLabel();
-    @DefaultStringValue("Create a blank Quarto document in current directory") // $NON-NLS-1$
+    @DefaultStringValue("Create a blank document in current directory") // $NON-NLS-1$
     String touchQuartoDocDesc();
     
     // touchRHTMLDoc
@@ -3361,13 +3361,13 @@ public interface CmdConstants extends Constants {
     String testTestthatFileDesc();
     
     // testShinytestFile
-    @DefaultStringValue("Run shinytest Test") // $NON-NLS-1$
+    @DefaultStringValue("Run test Test") // $NON-NLS-1$
     String testShinytestFileLabel();
     @DefaultStringValue("Run Test") // $NON-NLS-1$
     String testShinytestFileButtonLabel();
     @DefaultStringValue("Run test for file") // $NON-NLS-1$
     String testShinytestFileMenuLabel();
-    @DefaultStringValue("Run test using the shinytest package") // $NON-NLS-1$
+    @DefaultStringValue("Run test using the test package") // $NON-NLS-1$
     String testShinytestFileDesc();
     
     // stopBuild
@@ -3645,101 +3645,101 @@ public interface CmdConstants extends Constants {
     String profileHelpDesc();
     
     // reloadShinyApp
-    @DefaultStringValue("Reload Shiny Application") // $NON-NLS-1$
+    @DefaultStringValue("Reload Application") // $NON-NLS-1$
     String reloadShinyAppLabel();
     @DefaultStringValue("") // $NON-NLS-1$
     String reloadShinyAppButtonLabel();
     @DefaultStringValue("Reload") // $NON-NLS-1$
     String reloadShinyAppMenuLabel();
-    @DefaultStringValue("Reload the Shiny application") // $NON-NLS-1$
+    @DefaultStringValue("Reload the application") // $NON-NLS-1$
     String reloadShinyAppDesc();
     
     // shinyRunInPane
-    @DefaultStringValue("Run Shiny Application in New Pane") // $NON-NLS-1$
+    @DefaultStringValue("Run Application in New Pane") // $NON-NLS-1$
     String shinyRunInPaneLabel();
     @DefaultStringValue("Run in Viewer Pane") // $NON-NLS-1$
     String shinyRunInPaneMenuLabel();
-    @DefaultStringValue("Run the Shiny application in an RStudio pane") // $NON-NLS-1$
+    @DefaultStringValue("Run the application in an RStudio pane") // $NON-NLS-1$
     String shinyRunInPaneDesc();
     
     // shinyRunInViewer
-    @DefaultStringValue("Run Shiny Application in RStudio Viewer") // $NON-NLS-1$
+    @DefaultStringValue("Run Application in RStudio Viewer") // $NON-NLS-1$
     String shinyRunInViewerLabel();
     @DefaultStringValue("Run in Window") // $NON-NLS-1$
     String shinyRunInViewerMenuLabel();
-    @DefaultStringValue("Run the Shiny application in an RStudio viewer window") // $NON-NLS-1$
+    @DefaultStringValue("Run the application in an RStudio viewer window") // $NON-NLS-1$
     String shinyRunInViewerDesc();
     
     // shinyRunInBrowser
-    @DefaultStringValue("Run Shiny Application in Web Browser") // $NON-NLS-1$
+    @DefaultStringValue("Run Application in Web Browser") // $NON-NLS-1$
     String shinyRunInBrowserLabel();
     @DefaultStringValue("Run External") // $NON-NLS-1$
     String shinyRunInBrowserMenuLabel();
-    @DefaultStringValue("Run the Shiny application in the system's default Web browser") // $NON-NLS-1$
+    @DefaultStringValue("Run the application in the system's default Web browser") // $NON-NLS-1$
     String shinyRunInBrowserDesc();
     
     // shinyRecordTest
-    @DefaultStringValue("Record a test for Shiny") // $NON-NLS-1$
+    @DefaultStringValue("Record a test for") // $NON-NLS-1$
     String shinyRecordTestLabel();
     @DefaultStringValue("Record Test") // $NON-NLS-1$
     String shinyRecordTestButtonLabel();
     @DefaultStringValue("Record Test") // $NON-NLS-1$
     String shinyRecordTestMenuLabel();
-    @DefaultStringValue("Record test for Shiny application") // $NON-NLS-1$
+    @DefaultStringValue("Record test for application") // $NON-NLS-1$
     String shinyRecordTestDesc();
     
     // shinyRunAllTests
-    @DefaultStringValue("Run tests for Shiny application") // $NON-NLS-1$
+    @DefaultStringValue("Run tests for application") // $NON-NLS-1$
     String shinyRunAllTestsLabel();
     @DefaultStringValue("Run Tests") // $NON-NLS-1$
     String shinyRunAllTestsButtonLabel();
     @DefaultStringValue("Run Tests") // $NON-NLS-1$
     String shinyRunAllTestsMenuLabel();
-    @DefaultStringValue("Run tests for Shiny application") // $NON-NLS-1$
+    @DefaultStringValue("Run tests for application") // $NON-NLS-1$
     String shinyRunAllTestsDesc();
     
     // shinyCompareTest
-    @DefaultStringValue("Compare test results for Shiny application") // $NON-NLS-1$
+    @DefaultStringValue("Compare test results for application") // $NON-NLS-1$
     String shinyCompareTestLabel();
     @DefaultStringValue("Compare Results") // $NON-NLS-1$
     String shinyCompareTestButtonLabel();
     @DefaultStringValue("Compare Results") // $NON-NLS-1$
     String shinyCompareTestMenuLabel();
-    @DefaultStringValue("Compare test results for Shiny application") // $NON-NLS-1$
+    @DefaultStringValue("Compare test results for application") // $NON-NLS-1$
     String shinyCompareTestDesc();
     
     // reloadPlumberAPI
-    @DefaultStringValue("Reload Plumber API") // $NON-NLS-1$
+    @DefaultStringValue("Reload P API") // $NON-NLS-1$
     String reloadPlumberAPILabel();
     @DefaultStringValue("") // $NON-NLS-1$
     String reloadPlumberAPIButtonLabel();
     @DefaultStringValue("Reload") // $NON-NLS-1$
     String reloadPlumberAPIMenuLabel();
-    @DefaultStringValue("Reload the Plumber API") // $NON-NLS-1$
+    @DefaultStringValue("Reload the P API") // $NON-NLS-1$
     String reloadPlumberAPIDesc();
     
     // plumberRunInPane
-    @DefaultStringValue("Run Plumber API in New Pane") // $NON-NLS-1$
+    @DefaultStringValue("Run P API in New Pane") // $NON-NLS-1$
     String plumberRunInPaneLabel();
     @DefaultStringValue("Run in Viewer Pane") // $NON-NLS-1$
     String plumberRunInPaneMenuLabel();
-    @DefaultStringValue("Run the Plumber API in an RStudio pane") // $NON-NLS-1$
+    @DefaultStringValue("Run the P API in an RStudio pane") // $NON-NLS-1$
     String plumberRunInPaneDesc();
     
     // plumberRunInViewer
-    @DefaultStringValue("Run Plumber API in RStudio Viewer") // $NON-NLS-1$
+    @DefaultStringValue("Run P API in RStudio Viewer") // $NON-NLS-1$
     String plumberRunInViewerLabel();
     @DefaultStringValue("Run in Window") // $NON-NLS-1$
     String plumberRunInViewerMenuLabel();
-    @DefaultStringValue("Run the Plumber API in an RStudio viewer window") // $NON-NLS-1$
+    @DefaultStringValue("Run the P API in an RStudio viewer window") // $NON-NLS-1$
     String plumberRunInViewerDesc();
     
     // plumberRunInBrowser
-    @DefaultStringValue("Run Plumber API in Web Browser") // $NON-NLS-1$
+    @DefaultStringValue("Run P API in Web Browser") // $NON-NLS-1$
     String plumberRunInBrowserLabel();
     @DefaultStringValue("Run External") // $NON-NLS-1$
     String plumberRunInBrowserMenuLabel();
-    @DefaultStringValue("Run the Plumber API in the system's default Web browser") // $NON-NLS-1$
+    @DefaultStringValue("Run the P API in the system's default Web browser") // $NON-NLS-1$
     String plumberRunInBrowserDesc();
     
     // rsconnectDeploy
