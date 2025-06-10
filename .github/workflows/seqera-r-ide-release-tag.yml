@@ -20,7 +20,7 @@ jobs:
         id: check-release
         with:
           script: |
-            const tag = core.getInput('tag');
+            const tag = process.env.tag;
             console.log(`Tag received: ${tag}`);
 
             if (!tag) {
