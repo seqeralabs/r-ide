@@ -82,6 +82,35 @@ jobs:
           fi
           echo "deb_file=$DEB_FILE" >> $GITHUB_OUTPUT
 
+      - name: Delete Existing Asset (if exists)
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const uploadUrl = process.env.UPLOAD_URL;
+            const assetName = process.env.ASSET_NAME;
+            
+            const { data: assets } = await github.rest.repos.listReleaseAssets({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: uploadUrl.match(/releases\/(\d+)/)[1],
+            });
+            
+            const existingAsset = assets.find(asset => asset.name === assetName);
+            if (existingAsset) {
+              console.log(`Deleting existing asset: ${existingAsset.name}`);
+              await github.rest.repos.deleteReleaseAsset({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                asset_id: existingAsset.id,
+              });
+            } else {
+              console.log(`No existing asset found with name: ${assetName}`);
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UPLOAD_URL: ${{ needs.check-release.outputs.upload_url }}
+          ASSET_NAME: ${{ matrix.arch }}.deb
+
       - name: Upload .deb File to Release
         uses: actions/upload-release-asset@v1
         env:
