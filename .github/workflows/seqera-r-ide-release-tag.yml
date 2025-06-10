@@ -7,7 +7,7 @@ on:
         description: 'Seqera tag to re-build image'
         required: true
         type: string
-        default: 'v2025.05.0+496'
+        default: 'seqera-v2025.05.0+496'
 
 jobs:
   check-release:
@@ -38,7 +38,7 @@ jobs:
       upload_url: ${{ steps.check-release.outputs.upload_url }}
   build-server-linux:
     name: Build Server Linux
-    needs: [ apply-patches ]
+    needs: [ check-release ]
     strategy:
       matrix:
         arch: [ arm64, amd64 ]
