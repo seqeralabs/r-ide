@@ -1,0 +1,83 @@
+name: NO RELEASE - Rebuild Server Image and replace in release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Seqera tag to re-build image'
+        required: true
+        type: string
+        default: 'v2025.05.0+496'
+
+jobs:
+  check-release:
+    name: Check Release and Get Upload URL
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Release for Tag
+        uses: actions/github-script@v6
+        id: check-release
+        with:
+          script: |
+            const tag = core.getInput('tag');
+            const { data: releases } = await github.rest.repos.listReleases({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+  
+            const release = releases.find(r => r.tag_name === tag);
+            if (!release) {
+              core.setFailed(`No release found for tag: ${tag}`);
+            } else {
+              core.setOutput('upload_url', release.upload_url);
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      upload_url: ${{ steps.check-release.outputs.upload_url }}
+  build-server-linux:
+    name: Build Server Linux
+    needs: [ apply-patches ]
+    strategy:
+      matrix:
+        arch: [ arm64, amd64 ]
+
+    runs-on: ${{ matrix.arch == 'arm64' && 'ubuntu-24.04-arm' || 'ubuntu-24.04' }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.tag }}
+
+      - name: Install Dependencies
+        run: |
+          cd dependencies/linux
+          chmod +x ./install-dependencies-debian
+          ./install-dependencies-debian
+
+      - name: Build Server Package
+        run: |
+          cd package/linux
+          chmod +x ./make-server-package
+          ./make-server-package DEB clean
+
+      - name: Locate .deb File
+        id: locate-deb
+        run: |
+          DEB_FILE=$(find package/linux/build-Server-DEB -maxdepth 1 -name "*.deb" -type f | tr '\n' ' ')
+          if [ -z "$DEB_FILE" ]; then
+            echo "Error: No .deb file found!"
+            exit 1
+          fi
+          echo "deb_file=$DEB_FILE" >> $GITHUB_OUTPUT
+
+      - name: Upload .deb File to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.check-release.outputs.upload_url }}
+          asset_name: ${{ matrix.arch }}.deb
+          asset_path: ${{ steps.locate-deb.outputs.deb_file }}
+          asset_content_type: application/vnd.debian.binary-package
