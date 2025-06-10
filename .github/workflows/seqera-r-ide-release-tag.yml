@@ -21,15 +21,24 @@ jobs:
         with:
           script: |
             const tag = core.getInput('tag');
+            console.log(`Tag received: ${tag}`);
+
+            if (!tag) {
+              core.setFailed('Error: Tag input is empty or undefined.');
+              return;
+            }
+
             const { data: releases } = await github.rest.repos.listReleases({
               owner: context.repo.owner,
               repo: context.repo.repo,
             });
-  
+
             const release = releases.find(r => r.tag_name === tag);
             if (!release) {
               core.setFailed(`No release found for tag: ${tag}`);
             } else {
+              console.log(`Release found for tag: ${tag}`);
+              console.log(`Upload URL: ${release.upload_url}`);
               core.setOutput('upload_url', release.upload_url);
             }
         env:
