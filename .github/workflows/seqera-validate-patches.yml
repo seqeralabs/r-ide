@@ -62,11 +62,12 @@ jobs:
               echo "| \`$name\` | ❌ FAILED |" >> $GITHUB_STEP_SUMMARY
               echo "❌ $name FAILED"
               FAILED=1
-              break
             fi
           done
 
           if [ $FAILED -ne 0 ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "> ⚠️ Note: if an earlier patch failed, subsequent results may be unreliable due to missing context." >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "❌ **One or more patches failed. Review and update them before releasing.**" >> $GITHUB_STEP_SUMMARY
             exit 1
