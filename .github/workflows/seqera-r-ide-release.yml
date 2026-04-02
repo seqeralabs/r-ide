@@ -16,9 +16,18 @@ jobs:
     permissions:
       contents: write
 
+  validate-patches:
+    name: Validate Patches
+    needs: [sync-upstream]
+    uses: ./.github/workflows/seqera-validate-patches.yml
+    with:
+      tag: ${{ inputs.tag }}
+    permissions:
+      contents: read
+
   apply-patches:
     name: Apply Patches and Create Release
-    needs: [sync-upstream]
+    needs: [sync-upstream, validate-patches]
     runs-on: ubuntu-latest
     permissions:
       contents: write

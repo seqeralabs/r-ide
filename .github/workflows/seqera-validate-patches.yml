@@ -1,0 +1,76 @@
+name: Validate Patches
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Upstream tag to validate patches against (e.g. v2025.05.0+496)'
+        required: true
+        type: string
+        default: 'v2025.05.0+496'
+  workflow_call:
+    inputs:
+      tag:
+        description: 'Upstream tag to validate patches against'
+        required: true
+        type: string
+
+jobs:
+  validate-patches:
+    name: Validate patches against upstream tag
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Add upstream remote and fetch tag
+        run: |
+          git remote add upstream https://github.com/rstudio/rstudio || git remote set-url upstream https://github.com/rstudio/rstudio
+          git fetch upstream tag ${{ inputs.tag }} --no-tags
+
+      - name: Checkout upstream tag
+        run: |
+          git checkout ${{ inputs.tag }}
+
+      - name: Fetch patches from default branch
+        run: |
+          git fetch origin ${{ github.event.repository.default_branch }}
+          git checkout origin/${{ github.event.repository.default_branch }} -- PATCH
+
+      - name: Validate patches
+        run: |
+          FAILED=0
+
+          echo "## Patch Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "**Tag:** \`${{ inputs.tag }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Patch | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+
+          for patch in PATCH/*.patch; do
+            name=$(basename "$patch")
+            if git apply --check "$patch" 2>/dev/null; then
+              echo "| \`$name\` | ✅ OK |" >> $GITHUB_STEP_SUMMARY
+              echo "✅ $name"
+              git apply "$patch"
+            else
+              echo "| \`$name\` | ❌ FAILED |" >> $GITHUB_STEP_SUMMARY
+              echo "❌ $name FAILED"
+              FAILED=1
+              break
+            fi
+          done
+
+          if [ $FAILED -ne 0 ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **One or more patches failed. Review and update them before releasing.**" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          else
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "✅ **All patches apply cleanly. Safe to release.**" >> $GITHUB_STEP_SUMMARY
+          fi

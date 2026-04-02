@@ -1,4 +1,4 @@
-name: Sync Upstream (rstudio/rstudio)
+name: Sync Upstream
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   sync-upstream:
-    name: Sync branches and tags from rstudio/rstudio
+    name: Sync branches and tags from upstream
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -37,4 +37,4 @@ jobs:
       - name: Summary
         run: |
           echo "=== Non-seqera tags now available in origin ==="
-          git ls-remote --tags origin | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/||' | grep -v '^seqera-' | sort -rV
+          git ls-remote --tags origin | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/||' | grep '^v20[2-9][0-9]' | sort -rV
