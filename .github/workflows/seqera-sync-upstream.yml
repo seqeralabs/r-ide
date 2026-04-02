@@ -1,0 +1,50 @@
+name: Sync Upstream (rstudio/rstudio)
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  sync-upstream:
+    name: Sync branches and tags from rstudio/rstudio
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git Author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/rstudio/rstudio || git remote set-url upstream https://github.com/rstudio/rstudio
+
+      - name: Fetch upstream branches and tags
+        run: |
+          git fetch upstream --tags
+
+      - name: Sync branches (skip seqera/*)
+        run: |
+          git branch -r | grep '^  upstream/' | grep -v 'seqera/' | sed 's|  upstream/||' | while read branch; do
+            echo "Syncing branch: $branch"
+            git push origin "refs/remotes/upstream/${branch}:refs/heads/${branch}" --force
+          done
+
+      - name: Sync tags (skip seqera-*)
+        run: |
+          git ls-remote --tags upstream | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/||' | grep -v '^seqera-' | while read tag; do
+            echo "Syncing tag: $tag"
+            git push origin "refs/tags/${tag}:refs/tags/${tag}" || true
+          done
+
+      - name: Summary
+        run: |
+          echo "=== Non-seqera tags now available in origin ==="
+          git ls-remote --tags origin | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/||' | grep -v '^seqera-' | sort -rV

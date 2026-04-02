@@ -10,8 +10,15 @@ on:
         default: 'v2025.05.0+496'
 
 jobs:
+  sync-upstream:
+    name: Sync from fork
+    uses: ./.github/workflows/seqera-sync-upstream.yml
+    permissions:
+      contents: write
+
   apply-patches:
     name: Apply Patches and Create Release
+    needs: [sync-upstream]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -19,7 +26,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
         with:
           fetch-depth: 0
 
@@ -87,7 +94,7 @@ jobs:
     runs-on: ${{ matrix.arch == 'arm64' && 'ubuntu-24.04-arm' || 'ubuntu-24.04' }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # ratchet:actions/checkout@v6.0.2
         with:
           ref: ${{ needs.apply-patches.outputs.new_tag }}
 
