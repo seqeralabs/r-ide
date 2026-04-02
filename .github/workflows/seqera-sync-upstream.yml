@@ -25,9 +25,11 @@ jobs:
         run: |
           git fetch upstream --tags --no-recurse-submodules
 
-      - name: Sync tags (skip seqera-*)
+      # WARNING: This works with current tag pattern, where first part is the year of release, example: `v2026.01.2+418`.
+      # If this pattern changes in the future this task will have to be updated.
+      - name: Sync tags with upstream starting from v2020
         run: |
-          git ls-remote --tags upstream | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/||' | grep -v '^seqera-' | while read tag; do
+          git ls-remote --tags upstream | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/||' | grep '^v20[2-9][0-9]' | while read tag; do
             echo "Syncing tag: $tag"
             git push origin "refs/tags/${tag}:refs/tags/${tag}" || true
           done
