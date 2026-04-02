@@ -17,25 +17,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Configure Git Author
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Add upstream remote
         run: |
           git remote add upstream https://github.com/rstudio/rstudio || git remote set-url upstream https://github.com/rstudio/rstudio
 
-      - name: Fetch upstream branches and tags
+      - name: Fetch upstream tags
         run: |
-          git fetch upstream --tags
-
-      - name: Sync branches (skip seqera/*)
-        run: |
-          git branch -r | grep '^  upstream/' | grep -v 'seqera/' | sed 's|  upstream/||' | while read branch; do
-            echo "Syncing branch: $branch"
-            git push origin "refs/remotes/upstream/${branch}:refs/heads/${branch}" --force
-          done
+          git fetch upstream --tags --no-recurse-submodules
 
       - name: Sync tags (skip seqera-*)
         run: |
