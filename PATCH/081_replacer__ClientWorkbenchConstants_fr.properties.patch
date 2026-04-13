@@ -1,0 +1,19 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/ClientWorkbenchConstants_fr.properties b/src/gwt/src/org/rstudio/studio/client/workbench/ClientWorkbenchConstants_fr.properties
+index eaab5a4bf7..10e170de19 100644
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/ClientWorkbenchConstants_fr.properties
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/ClientWorkbenchConstants_fr.properties
+@@ -1,6 +1,6 @@
+ addinCaption=Extensions
+ executeButtonLabel=Exécuter
+-rstudioAddinsCaption=Utilisation des modules complémentaires de RStudio
++rstudioAddinsCaption=Utilisation des modules complémentaires de 
+ loadingAddinsCaption=Chargement des modules complémentaires...
+ noAddinsAvailableCaption=Aucune extension disponible
+ keyboardShortcutsTitle=Chemins de raccourcis clavier...
+@@ -18,4 +18,4 @@ rsaPublicKeyCaption=Clé publique RSA
+ onErrorReadKey=Erreur lors de la lecture de la clé ''{0}'' ({1})
+ yesLabel=Oui
+ noLabel=Non
+-adminNotificationCaption=Notification de l''administrateur
+\ No newline at end of file
++adminNotificationCaption=Notification de l''administrateur

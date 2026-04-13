@@ -1,0 +1,22 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/shiny/ShinyConstants_fr.properties b/src/gwt/src/org/rstudio/studio/client/shiny/ShinyConstants_fr.properties
+index 85e5e50e8b..11a54751c4 100644
+--- a/src/gwt/src/org/rstudio/studio/client/shiny/ShinyConstants_fr.properties
++++ b/src/gwt/src/org/rstudio/studio/client/shiny/ShinyConstants_fr.properties
+@@ -1,11 +1,11 @@
+-runningShinyUserAction=Exécution d''applications Shiny
++runningShinyUserAction=Exécution d''applications 
+ reloadFailErrorCaption=Échec du rechargement
+-reloadFailErrorMsg=Impossible de recharger l''application Shiny.\n\n{0}
+-launchFailedErrorCaption=Échec du lancement de l''application Shiny
+-backgroundLaunchFailedErrorCaption=Échec du lancement en arrière-plan de l''application Shiny
++reloadFailErrorMsg=Impossible de recharger l''application.\n\n{0}
++launchFailedErrorCaption=Échec du lancement de l''application
++backgroundLaunchFailedErrorCaption=Échec du lancement en arrière-plan de l''application
+ failedToStopErrorCaption=Échec de l''arrêt
+-failedToStopErrorMsg=Impossible d''arrêter l''application Shiny.\n\n{0}
+-shinyApplicationTitle=Application Shiny
++failedToStopErrorMsg=Impossible d''arrêter l''application .\n\n{0}
++shinyApplicationTitle=Application 
+ openInBrowserButtonText=Ouvrir dans le navigateur
+ inRConsoleLabel=Dans la console R
+ inBackgroundJobLabel=En tâche de fond

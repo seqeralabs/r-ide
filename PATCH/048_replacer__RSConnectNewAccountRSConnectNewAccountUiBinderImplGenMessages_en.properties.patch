@@ -1,0 +1,14 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_en.properties b/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -3,4 +3,4 @@
+ 
+ authorizeNewAccountText=Once you''ve authorized this computer to publish content to an account, you can publish any time without re-entering your credentials.
+ 
+-publishContentText=To publish content, you first need to connect RStudio to an account on the service you want to publish to.
++publishContentText=To publish content, you first need to connect to an account on the service you want to publish to.
+Index: src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

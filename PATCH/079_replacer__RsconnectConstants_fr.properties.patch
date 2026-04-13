@@ -1,0 +1,148 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/rsconnect/RsconnectConstants_fr.properties b/src/gwt/src/org/rstudio/studio/client/rsconnect/RsconnectConstants_fr.properties
+index 23a44a61f8..d81356de3b 100644
+--- a/src/gwt/src/org/rstudio/studio/client/rsconnect/RsconnectConstants_fr.properties
++++ b/src/gwt/src/org/rstudio/studio/client/rsconnect/RsconnectConstants_fr.properties
+@@ -17,10 +17,10 @@ uploadToRPubsErrorMessage=Seuls les documents rendus peuvent être publiés sur
+ publishDocument=Publier le document
+ showUnsupportedRPubsFormatMessageError=Seuls les documents rendus en HTML peuvent être publiés dans RPubs. Pour publier ce document, cliquez sur Knit ou Preview pour le convertir en HTML, puis cliquez sur le bouton Publish au-dessus du document converti.
+ unsupportedDocumentFormat=Format de document non pris en charge
+-rstudioDeployingApp=RStudio est en train de déployer {0}. Vérifiez l''onglet Console de déploiement dans la fenêtre principale pour les mises à jour de statut.
++rstudioDeployingApp= est en train de déployer {0}. Vérifiez l''onglet Console de déploiement dans la fenêtre principale pour les mises à jour de statut.
+ deploymentStarted=Déploiement commencé
+ content=Contenu
+-quartoWebsite=Site web Quarto
++quartoWebsite=Site web 
+ api=API
+ website=Site web
+ presentation=Présentation
+@@ -46,7 +46,9 @@ publishAnyway=Publier quand même
+ reviewIssues=Révision des problèmes
+ publishContentIssuesMessage=Certains problèmes ont été trouvés dans votre contenu, ce qui peut l''empêcher de fonctionner correctement après la publication. Voulez-vous revoir ces problèmes ou publier quand même ?
+ publishContentIssuesFound=Problèmes trouvés dans le contenu publié
+-lintFailedMessage=Le contenu que vous avez essayé de publier n''a pas pu être vérifié. Voulez-vous continuer ? \n\n{0}
++lintFailedMessage=Le contenu que vous avez essayé de publier n''a pas pu être vérifié. Voulez-vous continuer ? 
++
++{0}
+ lintFailed=Échec de Lint
+ apiNotPublishableMessage=La publication sur Posit Connect est désactivée dans les options de publication.
+ apiNotPublishable=API non publiable
+@@ -56,23 +58,34 @@ publishRpubTitle=Publier {0}
+ republishDocumentMessage=Seuls les documents rendus peuvent être republiés sur RPubs. Pour republier ce document, cliquez sur Tricot ou Aperçu pour le rendre en HTML, puis cliquez sur le bouton Republier au-dessus du document rendu.
+ republishDocument=Republier le document
+ currentPlot=Tracé actuel
+-rsConnectServerInfoString=Serveur : {0} ({1})\nVersion : {2}\nÀ propos : {3}\n
++rsConnectServerInfoString=Serveur : {0} ({1})
++Version : {2}
++À propos : {3}
++
+ titleMinimumCharacter=Le titre doit contenir au moins 3 caractères.
+ titleContainAlphanumeric=Le titre doit contenir de 4 à 64 caractères alphanumériques.
+-errorConnectingAccountMessage=Le serveur semble être valide, mais a rejeté la demande d''autorisation d''un compte.\n\n{0}\n{1}
++errorConnectingAccountMessage=Le serveur semble être valide, mais a rejeté la demande d''autorisation d''un compte.
++
++{0}
++{1}
+ errorConnectingAccount=Erreur de connexion d''un compte
+ settingUpAccount=La configuration d''un compte...
+-accountValidationFailedMessage=RStudio n''a pas réussi à déterminer si le compte était valide. Réessayez ; si l''erreur persiste, contactez l''administrateur du serveur.\n\n{0}\n{1}
++accountValidationFailedMessage= n''a pas réussi à déterminer si le compte était valide. Réessayez ; si l''erreur persiste, contactez l''administrateur du serveur.
++
++{0}
++{1}
+ accountValidationFailed=Échec de la validation du compte
+ accountNotConnectedMessage=L''authentification a échoué. Si vous n''avez pas annulé l''authentification, réessayez ou contactez l''administrateur de votre serveur pour obtenir de l''aide.
+ accountNotConnected=Compte non connecté
+ serverCouldntBeValidated=Le serveur n''a pas pu être validé. {0}
+-serverValidationFailedMessage=L''URL ''{0}'' ne semble pas appartenir à un serveur valide. Veuillez vérifier l''URL et contacter votre administrateur si le problème persiste.\n\n{1}
++serverValidationFailedMessage=L''URL ''{0}'' ne semble pas appartenir à un serveur valide. Veuillez vérifier l''URL et contacter votre administrateur si le problème persiste.
++
++{1}
+ serverValidationFailed=Échec de la validation du serveur
+ checkingServerConnection=Vérification de la connexion au serveur...
+ verifyingAccount=Vérification du compte
+-newRSConnectCloudPageCaption=Connexion du compte ShinyApps.io
+-newRSConnectCloudPageSubTitle=Un service en nuage géré par RStudio. Publie des applications Shiny et des documents interactifs sur Internet.
++newRSConnectCloudPageCaption=Connexion du compte Apps.io
++newRSConnectCloudPageSubTitle=Un service en nuage géré par. Publie des applications Shiny et des documents interactifs sur Internet.
+ rstudioConnectAccount=Compte Posit Connect
+ rPubsSubtitle=RPubs est un service gratuit de Posit pour le partage de documents sur le web.
+ publishTo=Publier vers
+@@ -82,7 +95,7 @@ publishMultiplePageTitle=Publier tous les documents du répertoire
+ publishMultiplePagSingleSubtitle=Seul le document {0} sera publié.
+ publishMultiplePagSingleTitle=Publier uniquement ce document
+ publishMultiplePageCaption=Que voulez-vous publier ?
+-publishReportSourcePageStaticSubtitle=Choisissez cette option pour publier le contenu tel qu''il apparaît dans RStudio.
++publishReportSourcePageStaticSubtitle=Choisissez cette option pour publier le contenu tel qu''il apparaît dans .
+ publishReportSourcePageStaticTitle=Publier uniquement le document {0} terminé
+ publishReportSourcePageSubTitle=Choisissez cette option si vous voulez créer {0} ou reconstruire votre {1} sur le serveur.
+ publishReportNoScheduledSourcePageSubtitle=Choisissez cette option si vous souhaitez pouvoir reconstruire votre {0} sur le serveur.
+@@ -93,15 +106,18 @@ websiteLowercase=site web
+ documentLowercase=document
+ publishToRstudioConnect=Publier sur Posit Connect
+ publishToRpubs=Publier sur RPubs
+-accountConnectFailedMessage=Votre compte a été authentifié avec succès, mais n''a pas pu être connecté à RStudio. Assurez-vous que votre installation du paquet ''rsconnect'' est correcte pour le serveur auquel vous vous connectez.\n\n{0}\n{1}
++accountConnectFailedMessage=Votre compte a été authentifié avec succès, mais n''a pas pu être connecté à. Assurez-vous que votre installation du paquet ''rsconnect'' est correcte pour le serveur auquel vous vous connectez.
++
++{0}
++{1}
+ accountConnectFailed=Échec de la connexion au compte
+ addingAccount=Ajout du compte...
+ errorAccountMessage=La commande ''{0}'' a échoué. Vous pouvez configurer un compte manuellement en utilisant rsconnect::setAccountInfo ; tapez ?rsconnect::setAccountInfo dans la console R pour plus d''informations.
+ connectingAccount=Connexion du compte...
+ errorAccountMessageSetInfo=La commande collée doit commencer par rsconnect::setAccountInfo. Si vous rencontrez des difficultés, essayez de connecter votre compte manuellement ; tapez ?rsconnect::setAccountInfo dans la console R pour obtenir de l''aide.
+-rStudioCouldNotRetrieveServerInfo=RStudio n''a pas pu récupérer les informations du serveur.
++rStudioCouldNotRetrieveServerInfo= n''a pas pu récupérer les informations du serveur.
+ cantFindServers=Impossible de trouver les serveurs
+-rStudioCouldNotRetrieveForAccount=RStudio n''a pas pu récupérer les informations du serveur pour le compte sélectionné.
++rStudioCouldNotRetrieveForAccount= n''a pas pu récupérer les informations du serveur pour le compte sélectionné.
+ serverInformationNotFound=Informations sur le serveur introuvables
+ errorRetrievingAccounts=Erreur de récupération des comptes
+ noAccountsConnected=Aucun compte n''est connecté.
+@@ -112,7 +128,7 @@ chooseAccountType=Choisissez le type de compte
+ connectPublishingAccount=Compte de publication Connect
+ pickAnAccount=Choisir un compte
+ confirmAccountOn=Confirmer le compte sur {0}
+-connectingShinyAppsAccount=Connecter votre compte ShinyApps
++connectingShinyAppsAccount=Connecter votre compte Apps
+ uncheckAll=Tout décocher
+ checkAll=Tout cocher
+ replace=Remplacer
+@@ -122,14 +138,18 @@ index=index
+ onAddFileClickMessage=Seuls les fichiers se trouvant dans le même dossier que le document ({0}) ou l''un de ses sous-dossiers peuvent être ajoutés.
+ cannotAddFile=Impossible d''ajouter un fichier
+ selectFile=Sélectionner le fichier
+-couldNotFindFilesToDeploy=Impossible de trouver les fichiers à déployer : \n\n{0}
++couldNotFindFilesToDeploy=Impossible de trouver les fichiers à déployer : 
++
++{0}
+ couldNotDetermineListToDeploy=Impossible de déterminer la liste des fichiers à déployer.
+ itemExceedsDeploymentSize=L''élément à déployer ({0}) dépasse la taille maximale de déploiement, qui est de {1}. Envisagez de créer un nouveau répertoire contenant uniquement le contenu que vous souhaitez déployer.
+ collectingFiles=Collecte des fichiers...
+ couldNotDetermineListToDeployReRender=Impossible de déterminer la liste des fichiers à déployer. Essayez de refaire le rendu et assurez-vous que vous publiez sur un serveur qui prend en charge ce type de contenu.
+ finishedDocumentNotFoundMessage=Pour publier un document fini sur Posit Connect, vous devez d''abord le rendre. Ne tenez pas compte de ce message, cliquez sur Knit pour effectuer le rendu du document, puis réessayez de publier.
+ finishedDocumentNotFound=Document fini non trouvé
+-errorRetrievingAccountsWithMessage=Erreur de récupération des comptes:\n\n{0}
++errorRetrievingAccountsWithMessage=Erreur de récupération des comptes:
++
++{0}
+ errorRetrievingApplicationAppId=Erreur de récupération de l''application {0}.
+ publishFromAccount=Publier à partir d''un compte
+ createNewAccountMessage=Pour publier ce contenu à un nouvel emplacement, cliquez sur le menu déroulant Publier et choisissez Autre destination.
+@@ -151,7 +171,9 @@ cantPublishContent=Impossible de publier {0}
+ unsavedDocumentPublishMessage=Les documents non sauvegardés ne peuvent pas être publiés. Enregistrez le document avant de le publier.
+ unsavedDocument=Document non sauvegardé
+ noHTMLGenerated=Aucun HTML n''a pu être généré pour le contenu.
+-hostNotRegisteredMessage=Cette copie du contenu a été publiée sur le serveur ''{0}'', mais vous n''avez actuellement aucun compte enregistré sur ce serveur. \n\nConnectez un compte sur le serveur ''{0}'' pour mettre à jour l''application, ou publiez le contenu sur un autre serveur.
++hostNotRegisteredMessage=Cette copie du contenu a été publiée sur le serveur ''{0}'', mais vous n''avez actuellement aucun compte enregistré sur ce serveur. 
++
++Connectez un compte sur le serveur ''{0}'' pour mettre à jour l''application, ou publiez le contenu sur un autre serveur.
+ hostNotRegistered={0} Non enregistré
+ publishOptions=Options de publication
+ reconnectAccount=Reconnecter le compte
+@@ -164,4 +186,4 @@ close=Fermer
+ environmentVariablesDialogTitle=Variables d''environnement
+ environmentVariablesHelpLinkLabel=Variables d''environnement
+ noEnvVarsAvailable=Aucune variable d''environnement n''est actuellement disponible.
+-envVarsSelectMessage=Sélectionnez une ou plusieurs variables d''environnement à publier avec ce {0}.
+\ No newline at end of file
++envVarsSelectMessage=Sélectionnez une ou plusieurs variables d''environnement à publier avec ce {0}.

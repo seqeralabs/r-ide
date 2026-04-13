@@ -1,0 +1,14 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContentsAboutDialogContentsUiBinderImplGenMessages_en.properties b/src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContentsAboutDialogContentsUiBinderImplGenMessages_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContentsAboutDialogContentsUiBinderImplGenMessages_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContentsAboutDialogContentsUiBinderImplGenMessages_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -2,4 +2,4 @@
+ # Source locale en
+ 
+ 
+-rStudioLogo=RStudio Logo
++rStudioLogo=Logo
+Index: src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContentsAboutDialogContentsUiBinderImplGenMessages_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

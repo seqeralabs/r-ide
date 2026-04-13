@@ -1,0 +1,28 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/rmarkdown/RMarkdownConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/rmarkdown/RMarkdownConstants_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/rmarkdown/RMarkdownConstants_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/rmarkdown/RMarkdownConstants_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -1,7 +1,7 @@
+-shinyTerminalErrorCaption=Shiny Terminate Failed
+-shinyTerminalErrorMsg=The Shiny document {0} needs to be stopped before the document can be rendered.
++shinyTerminalErrorCaption= Terminate Failed
++shinyTerminalErrorMsg=The  document {0} needs to be stopped before the document can be rendered.
+ renderCompletedCaption=Render Completed
+-renderCompletedMsg=RStudio has finished rendering {0} to {1}.
++renderCompletedMsg=IDE has finished rendering {0} to {1}.
+ yesLabel=Download File
+ noLabel=OK
+ rmdOutputPanelTitle=Rmd Output Panel
+@@ -15,7 +15,7 @@
+ templatesNotFoundErrorMsg=An error occurred while looking for R Markdown templates. {0}
+ editTemplateOptionsCaption=Edit {0} {1} Options
+ rMarkdownOptionstabListLabel=R Markdown Options
+-warningDialogText=Shiny Content
++warningDialogText= Content
+ yesOnceButtonText=Yes, Once
+ yesAlwaysButtonText=Yes, Always
+ noButtonText=No
+Index: src/gwt/src/org/rstudio/studio/client/rmarkdown/RMarkdownConstants_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

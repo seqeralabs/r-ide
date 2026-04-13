@@ -1,0 +1,12 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/ClientWorkbenchConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/ClientWorkbenchConstants_en.properties
+index a951ac7cba..ee1a3e53d2 100644
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/ClientWorkbenchConstants_en.properties
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/ClientWorkbenchConstants_en.properties
+@@ -1,6 +1,6 @@
+ addinCaption=Addins
+ executeButtonLabel=Execute
+-rstudioAddinsCaption=Using RStudio Addins
++rstudioAddinsCaption=Using Addins
+ loadingAddinsCaption=Loading addins...
+ noAddinsAvailableCaption=No addins available
+ keyboardShortcutsTitle=Keyboard Shortcuts...

@@ -1,0 +1,65 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContents.java b/src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContents.java
+--- a/src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContents.java	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContents.java	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -69,30 +69,12 @@
+ 
+       // a11y
+       productInfo.getElement().setId("productinfo");
+-      gplLinkLabel.getElement().setId("gplLinkLabel");
+-      Roles.getLinkRole().setAriaDescribedbyProperty(gplLink.getElement(), Id.of(gplLinkLabel.getElement()));
+ 
+       userAgentLabel.setText(Window.Navigator.getUserAgent() + quartoDetails);
+       buildLabel.setText(
+            "\"" + info.release_name + "\" " + info.build_type + " (" + StringUtil.substring(info.commit, 0, 8) + ", " +
+            info.date + constants_.buildLabelForText() + info.os);
+       productName.setText(editionInfo.editionName());
+-      copyrightYearLabel.setText("2009-" + info.copyright_year);
+-
+-      // Warn that dailies and previews aren't supported
+-      if (!info.build_type.equals("Release")) {
+-         supportNotice.setText(
+-            constants_.buildTypeThisText() +
+-            info.build_type +
+-            " " + constants_.buildOfText() +
+-            editionInfo.editionName() +
+-            " " + constants_.supportNoticeText()
+-         );
+-      }
+-      else
+-      {
+-         preReleaseRibbon.setVisible(false);
+-      }
+ 
+ 
+       showNoticelink_.setClickHandler(() ->
+@@ -115,8 +97,6 @@
+ 
+       if (editionInfo.proLicense())
+       {
+-         // no need to show GPL notice in pro edition
+-         gplNotice.setVisible(false);
+ 
+          if (Desktop.hasDesktopFrame())
+          {
+@@ -142,16 +122,11 @@
+    @UiField InlineLabel versionBuildLabel;
+    @UiField InlineLabel userAgentLabel;
+    @UiField InlineLabel buildLabel;
+-   @UiField InlineLabel copyrightYearLabel;
+    @UiField HyperlinkLabel showNoticelink_;
+-   @UiField HTMLPanel gplNotice;
+    @UiField HTMLPanel licenseLabel;
+    @UiField HTMLPanel preReleaseRibbon;
+    @UiField TextArea licenseBox;
+    @UiField Label productName;
+    @UiField HTMLPanel productInfo;
+-   @UiField InlineLabel supportNotice;
+-   @UiField Anchor gplLink;
+-   @UiField Label gplLinkLabel;
+    private static final StudioClientApplicationConstants constants_ = GWT.create(StudioClientApplicationConstants.class);
+ }
+Index: src/gwt/src/org/rstudio/studio/client/application/ui/AboutDialogContents.ui.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================

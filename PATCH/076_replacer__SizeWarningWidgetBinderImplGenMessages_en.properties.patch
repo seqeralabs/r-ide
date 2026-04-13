@@ -1,0 +1,14 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/vcs/dialog/SizeWarningWidgetBinderImplGenMessages_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/vcs/dialog/SizeWarningWidgetBinderImplGenMessages_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/vcs/dialog/SizeWarningWidgetBinderImplGenMessages_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/vcs/dialog/SizeWarningWidgetBinderImplGenMessages_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -5,4 +5,4 @@
+ #   1 - htmlElement1End, Example: </tag>
+ #   2 - htmlElement2Begin, Example: <tag>
+ #   3 - htmlElement2End, Example: </tag>
+-warningText=<strong>This {0}{1} is extremely large ({2}{3}) and may<br> cause RStudio to slow down or even hang.</strong> <br><br> Are you sure you want to continue?
++warningText=<strong>This {0}{1} is extremely large ({2}{3}) and may<br> cause to slow down or even hang.</strong> <br><br> Are you sure you want to continue?
+Index: src/gwt/src/org/rstudio/studio/client/workbench/views/vcs/dialog/SizeWarningWidgetBinderImplGenMessages_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

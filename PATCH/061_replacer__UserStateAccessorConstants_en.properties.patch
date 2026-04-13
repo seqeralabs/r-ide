@@ -1,0 +1,18 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/prefs/model/UserStateAccessorConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/prefs/model/UserStateAccessorConstants_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/prefs/model/UserStateAccessorConstants_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/prefs/model/UserStateAccessorConstants_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -137,7 +137,7 @@
+ zoteroDataDirDescription = Directory containing Zotero data files
+ 
+ # Sync source editor to Quarto website preview navigation.
+-quartoWebsiteSyncEditorTitle = Quarto Website Sync Editor
+-quartoWebsiteSyncEditorDescription = Sync source editor to Quarto website preview navigation.
++quartoWebsiteSyncEditorTitle =  Website Sync Editor
++quartoWebsiteSyncEditorDescription = Sync source editor to  website preview navigation.
+ 
+ 
+Index: src/gwt/src/org/rstudio/studio/client/workbench/prefs/model/UserStateAccessorConstants_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

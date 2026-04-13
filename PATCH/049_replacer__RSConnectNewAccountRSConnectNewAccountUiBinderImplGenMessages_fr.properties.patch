@@ -1,0 +1,10 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_fr.properties b/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_fr.properties
+index aa3b5a82f0..b8b90569ad 100644
+--- a/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_fr.properties
++++ b/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectNewAccountRSConnectNewAccountUiBinderImplGenMessages_fr.properties
+@@ -3,4 +3,4 @@
+ 
+ authorizeNewAccountText=Une fois que vous avez autorisé cet ordinateur à publier du contenu sur un compte, vous pouvez publier à tout moment sans avoir à saisir à nouveau vos informations d''identification.
+ 
+-publishContentText=Pour publier du contenu, vous devez d''abord connecter RStudio à un compte sur le service vers lequel vous voulez publier.
++publishContentText=Pour publier du contenu, vous devez d''abord connecter  à un compte sur le service vers lequel vous voulez publier.

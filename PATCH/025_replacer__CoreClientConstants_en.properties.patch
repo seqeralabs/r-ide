@@ -1,0 +1,26 @@
+diff --git a/src/gwt/src/org/rstudio/core/client/CoreClientConstants_en.properties b/src/gwt/src/org/rstudio/core/client/CoreClientConstants_en.properties
+--- a/src/gwt/src/org/rstudio/core/client/CoreClientConstants_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/core/client/CoreClientConstants_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -84,7 +84,7 @@
+ tagNameErrorMessage=Failed to find <input> element in table
+ radioShowLabel=Show:
+ customizeKeyboardHelpLink=Customizing Keyboard Shortcuts
+-addMaskedCommandStylesText=Masked by RStudio command: 
++addMaskedCommandStylesText=Masked by command: 
+ addConflictCommandStylesText=Conflicts with command: 
+ refreshAutomaticallyLabel=Refresh Automatically
+ stopButtonText=Stop
+@@ -133,7 +133,7 @@
+ rpcOverrideErrorMessage=Unable to establish connection with {0} when executing ''{1}''
+ rpcOverrideErrorMessageServer=Unable to establish connection with session on {0}. Please try logging in again in a new tab, then return to resume your session.
+ rpcOverrideErrorMessageLink=Log in
+-restartRequiredMessage=You need to restart RStudio in order for these changes to take effect. Do you want to do this now?
++restartRequiredMessage=You need to restart in order for these changes to take effect. Do you want to do this now?
+ closeButtonText=Close {0} tab
+ minimizeState=Minimize {0}
+ maximizeState=Maximize {0}
+Index: src/gwt/src/org/rstudio/core/client/CoreClientConstants_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

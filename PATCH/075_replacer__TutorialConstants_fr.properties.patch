@@ -1,0 +1,16 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/tutorial/TutorialConstants_fr.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/tutorial/TutorialConstants_fr.properties
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/tutorial/TutorialConstants_fr.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/tutorial/TutorialConstants_fr.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -4,5 +4,5 @@
+ tutorialTabLabel=Onglet du tutoriel
+ loadingTutorialProgressMessage=Chargement du tutoriel...
+ errorInstallingLearnr=Erreur lors de l''installation de learnr
+-errorInstallingLearnrMessage=RStudio n''a pas pu installer le paquet learnr.
++errorInstallingLearnrMessage= n''a pas pu installer le paquet learnr.
+ installingLearnrCaption=Installation de learnr...
+\ No newline at end of file
+Index: src/gwt/src/org/rstudio/studio/client/workbench/views/vcs/dialog/SizeWarningWidgetBinderImplGenMessages_en.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
