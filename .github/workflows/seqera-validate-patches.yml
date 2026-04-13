@@ -54,10 +54,10 @@ jobs:
 
           for patch in PATCH/*.patch; do
             name=$(basename "$patch")
-            if git apply --check "$patch" 2>/dev/null; then
+            if git apply --check --ignore-whitespace "$patch" 2>/dev/null; then
               echo "| \`$name\` | ✅ OK |" >> $GITHUB_STEP_SUMMARY
               echo "✅ $name"
-              git apply "$patch"
+              git apply --ignore-whitespace "$patch"
             else
               echo "| \`$name\` | ❌ FAILED |" >> $GITHUB_STEP_SUMMARY
               echo "❌ $name FAILED"

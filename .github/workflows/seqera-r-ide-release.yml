@@ -60,7 +60,7 @@ jobs:
       - name: Apply Patches
         run: |
           for patch in PATCH/*.patch; do
-            git apply "$patch" || exit 1
+            git apply --ignore-whitespace "$patch" || exit 1
           done
 
       - name: Commit and Push Changes
