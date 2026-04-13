@@ -49,9 +49,8 @@ jobs:
   apply-patches:
     name: Apply Patches and Create Release
     needs: [validate-patches]
-    # explicit if: needed because validate-patches uses `if: always()`,
-    # which would otherwise cause GitHub to auto-skip this job
-    if: needs.validate-patches.result == 'success'
+    # always() needed to override GitHub's auto-skip caused by the always() upstream chain
+    if: always() && needs.validate-patches.result == 'success'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -120,9 +119,8 @@ jobs:
   build-server-linux:
     name: Build Server Linux
     needs: [ apply-patches ]
-    # explicit if: needed because the `always()` upstream in validate-patches
-    # can propagate the auto-skip behavior down the entire chain
-    if: needs.apply-patches.result == 'success'
+    # always() to override the auto-skip propagated from the upstream chain
+    if: always() && needs.apply-patches.result == 'success'
     strategy:
       matrix:
         arch: [ arm64, amd64 ]
