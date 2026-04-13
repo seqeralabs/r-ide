@@ -1,7 +1,8 @@
 diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/connections/ConnectionsConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/connections/ConnectionsConstants_en.properties
---- a/src/gwt/src/org/rstudio/studio/client/workbench/views/connections/ConnectionsConstants_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
-+++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/connections/ConnectionsConstants_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
-@@ -29,7 +29,7 @@
+index 0b7fb52366..c084bdda50 100644
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/connections/ConnectionsConstants_en.properties
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/connections/ConnectionsConstants_en.properties
+@@ -29,7 +29,7 @@ titleText=title
  driverLabelText=The {0} driver is currently not installed. 
  installOdbcCaption={0} Installation
  connectionUserActionLabel=Connecting to 
@@ -10,7 +11,7 @@ diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/connections/C
  newConnectionPage={0} Connection
  connectionHelpLink=Using {0}
  advancedOptionsCaption=Advanced Options
-@@ -50,7 +50,7 @@
+@@ -50,7 +50,7 @@ uninstallationCompleteCaption=Uninstallation complete
  driverUninstalledSuccess=Driver {0} was successfully uninstalled..
  uninstalledFailedMessage=Uninstallation failed
  newConnectionCaption=New Connection
@@ -19,9 +20,3 @@ diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/connections/C
  loadingObjectsMessage=Loading objects
  viewTableHTML=\"View table (up to 1,000 records)\"
  installationPath=Installation path:
-\ No newline at end of file
-Index: src/gwt/src/org/rstudio/studio/client/workbench/views/connections/ConnectionsConstants_fr.properties
-IDEA additional info:
-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
-<+>ISO-8859-1
-===================================================================
