@@ -1,0 +1,14 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/PublishRPubsPublishRPubsUiBinderImplGenMessages_fr.properties b/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/PublishRPubsPublishRPubsUiBinderImplGenMessages_fr.properties
+--- a/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/PublishRPubsPublishRPubsUiBinderImplGenMessages_fr.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/PublishRPubsPublishRPubsUiBinderImplGenMessages_fr.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -5,4 +5,4 @@
+ 
+ publishDocumentsText=Vous ne devez publier que les documents que vous souhaitez partager publiquement.
+ 
+-publishRPubsText=RPubs est un service gratuit de RStudio pour le partage de documents sur le Web. Cliquez sur Publier pour commencer.
++publishRPubsText=RPubs est un service gratuit de  pour le partage de documents sur le Web. Cliquez sur Publier pour commencer.
+Index: src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectAuthWaitRSConnectAuthWaitUiBinderImplGenMessages_en.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

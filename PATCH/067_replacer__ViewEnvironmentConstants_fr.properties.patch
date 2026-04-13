@@ -1,0 +1,13 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_fr.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_fr.properties
+index cf35e7925b..de8abf3be0 100644
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_fr.properties
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_fr.properties
+@@ -94,7 +94,7 @@ pleaseProvideAVariableName=Veuillez fournir un nom de variable.
+ unknownCapitalized=Inconnu
+ macOsSystem=Système MacOS
+ windowsSystem=Système Windows
+-shinyFunctionLabel=[Shiny : {0}]
++shinyFunctionLabel=[Apps : {0}]
+ debugSourceBrackets=[Source du débogage]
+ fileLocationAtLine={0} at {1}:{2}
+ tracebackCapitalized=Revenir en arrière

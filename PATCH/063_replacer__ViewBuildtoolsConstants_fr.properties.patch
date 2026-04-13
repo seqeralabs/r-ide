@@ -1,0 +1,13 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_fr.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_fr.properties
+index 6fe6a1159a..28d34f3959 100644
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_fr.properties
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_fr.properties
+@@ -16,7 +16,7 @@ terminalTerminatedQuestion=Les travaux terminaux seront terminés. En êtes-vous
+ terminatingBuildMessage=Terminer la construction...
+ errorTerminatingBuildCaption=Erreur de fin de construction
+ errorTerminatingBuildMessage=Impossible de terminer la construction. Veuillez réessayer.
+-quartoServeError=Erreur de serveur Quarto
++quartoServeError=Erreur de serveur 
+ buildAllLabel=Construire tout
+ buildAllDesc=Tout construire
+ projectTypeText=Projet

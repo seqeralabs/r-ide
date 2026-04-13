@@ -1,0 +1,17 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -94,7 +94,7 @@
+ unknownCapitalized=Unknown
+ macOsSystem=MacOS System
+ windowsSystem=Windows System
+-shinyFunctionLabel=[Shiny: {0}]
++shinyFunctionLabel=[Apps: {0}]
+ debugSourceBrackets=[Debug source]
+ fileLocationAtLine={0} at {1}:{2}
+ tracebackCapitalized=Traceback
+Index: src/gwt/src/org/rstudio/studio/client/workbench/views/environment/ViewEnvironmentConstants_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

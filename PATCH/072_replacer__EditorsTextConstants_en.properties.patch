@@ -1,0 +1,26 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/source/editors/text/EditorsTextConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/source/editors/text/EditorsTextConstants_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/source/editors/text/EditorsTextConstants_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/source/editors/text/EditorsTextConstants_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -12,7 +12,7 @@
+ onShinyCompareTestResponseMessage=There are no failed tests to compare.
+ checkTestPackageDependenciesError=Failed to check for additional dependencies
+ checkTestPackageDependenciesMessage=The package shinytest requires additional components to run.\n\nInstall additional components?
+-checkTestPackageDependenciesCaption=Install Shinytest Dependencies
++checkTestPackageDependenciesCaption=Install test Dependencies
+ installShinyTestDependenciesError=Failed to install additional dependencies
+ checkForExternalEditFileChangedMessage=The file {0} has changed on disk. Do you want to reload the file from disk and discard your unsaved changes?
+ checkForExternalEditFileChangedCaption=File Changed
+@@ -154,7 +154,7 @@
+ compareResults=Compare Results
+ runTests=Run Tests
+ compileReport=Compile Report ({0})
+-shinyTestOptions=Shiny test options
++shinyTestOptions= test options
+ knitOptions=Knit options
+ runDocumentOptions=Run document options
+ sourceButtonTitle=Source the active document
+Index: src/gwt/src/org/rstudio/studio/client/workbench/views/source/editors/text/EditorsTextConstants_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

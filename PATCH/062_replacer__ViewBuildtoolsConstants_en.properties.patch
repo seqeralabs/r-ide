@@ -1,0 +1,17 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -16,7 +16,7 @@
+ terminatingBuildMessage=Terminating Build...
+ errorTerminatingBuildCaption=Error Terminating Build
+ errorTerminatingBuildMessage=Unable to terminate build. Please try again.
+-quartoServeError=Quarto Serve Error
++quartoServeError= Serve Error
+ buildAllLabel=Build All
+ buildAllDesc=Build all
+ projectTypeText=Project
+Index: src/gwt/src/org/rstudio/studio/client/workbench/views/buildtools/ViewBuildtoolsConstants_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

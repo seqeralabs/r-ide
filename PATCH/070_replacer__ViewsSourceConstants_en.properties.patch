@@ -1,0 +1,78 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/source/ViewsSourceConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/source/ViewsSourceConstants_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/source/ViewsSourceConstants_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/source/ViewsSourceConstants_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -12,10 +12,10 @@
+ applicationTypeColon=Application type:
+ singleFileAppR=Single File (app.R)
+ multipleFileUiServerR=Multiple File (ui.R/server.R)
+-shinyWebApplications=Shiny Web Applications
++shinyWebApplications= Web Applications
+ applicationNameMustNotBeEmpty=The application name must not be empty
+ invalidApplicationNameCapitalized=Invalid Application Name
+-newQuatroProgressIndicator=New Quarto {0}...
++newQuatroProgressIndicator=New  {0}...
+ presentationCapitalized=Presentation
+ documentCapitalized=Document
+ errorCapitalized=Error
+@@ -29,9 +29,9 @@
+ creatingStanScript=Creating Stan script
+ creatingStanScriptPlural=Creating Stan scripts
+ creatingNewDocument=Creating new document...
+-errorCreatingShinyApplication=Error Creating Shiny Application
++errorCreatingShinyApplication=Error Creating  Application
+ errorCreatingPlumberApi=Error Creating Plumber API
+-newShinyWebApplication=New Shiny Web Application
++newShinyWebApplication=New  Web Application
+ newRPresentation=New R Presentation
+ creatingPresentation=Creating Presentation...
+ documentTabMoveFailed=Document Tab Move Failed
+@@ -68,7 +68,7 @@
+ sourceColumn=Source Column {0}
+ source=Source
+ switchToTab=Switch to tab
+-rstudioSourceEditor=RStudio Source Editor
++rstudioSourceEditor=Source Editor
+ closeSourceWindow=Close Source Window
+ cancel=Cancel
+ closeAndDiscardChanges=Close and Discard Changes
+@@ -170,7 +170,7 @@
+ executingChunks=Executing chunks
+ runChunk=Run Chunk
+ jobChunkCurrentlyExecuting={0}: Chunks Currently Executing
+-rStudioCannotExecuteJob=RStudio cannot execute ''{0}'' because this notebook is already executing code. Interrupt R, or wait for execution to complete.
++rStudioCannotExecuteJob=cannot execute ''{0}'' because this notebook is already executing code. Interrupt R, or wait for execution to complete.
+ runChunks=Run Chunks
+ chunksCurrentlyRunning=Chunks Currently Running
+ outputCantBeClearedBecauseChunks=Output can''t be cleared because there are still chunks running. Do you want to interrupt them?
+@@ -225,7 +225,7 @@
+ tomorrowNight=Tomorrow Night
+ textmateDefaultParentheses=Textmate (default)
+ specifiedThemeDoesNotExist=The specified theme does not exist
+-specifiedDefaultThemeCannotBeRemoved=The specified theme is a default RStudio theme and cannot be removed.
++specifiedDefaultThemeCannotBeRemoved=The specified theme is a default theme and cannot be removed.
+ chooseEncoding=Choose Encoding
+ encodingsCapitalized=Encodings
+ showAllEncodings=Show all encodings
+@@ -238,7 +238,7 @@
+ newRMarkdown=New R Markdown
+ templatesCapitalized=Templates
+ createEmptyDocument=Create Empty Document
+-usingShinyWithRMarkdown=Using Shiny with R Markdown
++usingShinyWithRMarkdown=Using  with R Markdown
+ shinyDocNameDescription=Create an HTML document with interactive Shiny components.
+ shinyPresentationNameDescription=Create an IOSlides presentation with interactive Shiny components.
+ fromTemplate=From Template
+@@ -285,7 +285,7 @@
+ editsStillBeingBackedUp=Some of your source edits are still being backed up. If you continue, your latest changes may be lost. Do you want to continue?
+ processStillBeingUsedTextEditingTarget=The process cannot access the file because it is being used by another process
+ errorAutosavingFile=Error Autosaving File
+-rStudioUnableToAutosave=RStudio was unable to autosave this file. You may need to restart RStudio.
++rStudioUnableToAutosave=was unable to autosave this file. You may need to restart IDE.
+ couldNotSavePathPlusMessage=Could not save {0}: {1}
+ errorSavingPathPlusMessage=Error saving {0}: {1}
+ documentOutline=Document Outline
+Index: src/gwt/src/org/rstudio/studio/client/workbench/views/source/ViewsSourceConstants_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

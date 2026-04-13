@@ -1,0 +1,17 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectAuthWaitRSConnectAuthWaitUiBinderImplGenMessages_en.properties b/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectAuthWaitRSConnectAuthWaitUiBinderImplGenMessages_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectAuthWaitRSConnectAuthWaitUiBinderImplGenMessages_en.properties	(revision c3fb8ac0834ceac64b3ab1cf08484fe6faf25635)
++++ b/src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectAuthWaitRSConnectAuthWaitUiBinderImplGenMessages_en.properties	(revision 081bbeaa94c2b8322027eda8c540d63fd7c44b7d)
+@@ -5,7 +5,7 @@
+ 
+ confirmAccountText=A window will open momentarily to confirm your account. If it doesn''t, click here to open it\:
+ 
+-connectAccountText=You''ve successfully authorized this computer. Click "Connect Account" to add this account to RStudio.
++connectAccountText=You''ve successfully authorized this computer. Click "Connect Account" to add this account.
+ 
+ tryAgainText=Try Again
+ 
+Index: src/gwt/src/org/rstudio/studio/client/rsconnect/ui/RSConnectAuthWaitRSConnectAuthWaitUiBinderImplGenMessages_fr.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================

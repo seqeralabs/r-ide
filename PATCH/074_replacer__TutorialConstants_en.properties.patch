@@ -1,0 +1,16 @@
+diff --git a/src/gwt/src/org/rstudio/studio/client/workbench/views/tutorial/TutorialConstants_en.properties b/src/gwt/src/org/rstudio/studio/client/workbench/views/tutorial/TutorialConstants_en.properties
+--- a/src/gwt/src/org/rstudio/studio/client/workbench/views/tutorial/TutorialConstants_en.properties
++++ b/src/gwt/src/org/rstudio/studio/client/workbench/views/tutorial/TutorialConstants_en.properties
+@@ -4,8 +4,8 @@
+ tutorialTabLabel=Tutorial Tab
+ loadingTutorialProgressMessage=Loading tutorial...
+ errorInstallingLearnr=Error installing learnr
+-errorInstallingLearnrMessage=RStudio was unable to install the learnr package.
++errorInstallingLearnrMessage=was unable to install the learnr package.
+ installingLearnrCaption=Installing learnr...
+-errorInstallingShiny=Error installing shiny
+-errorInstallingShinyMessage=RStudio was unable to install the shiny package.
+-installingShinyCaption=Installing shiny...
++errorInstallingShiny=Error installing web apps
++errorInstallingShinyMessage=IDE was unable to install the package.
++installingShinyCaption=Installing web apps...
