@@ -10,15 +10,36 @@ on:
         default: 'v2025.05.0+496'
 
 jobs:
+  check-tag:
+    name: Check if upstream tag already in origin
+    runs-on: ubuntu-latest
+    outputs:
+      needs_sync: ${{ steps.check.outputs.needs_sync }}
+    steps:
+      - name: Check tag in origin
+        id: check
+        run: |
+          if git ls-remote --tags https://github.com/${{ github.repository }} \
+                 "refs/tags/${{ inputs.tag }}" | grep -q .; then
+            echo "Tag ${{ inputs.tag }} already in origin — skipping sync"
+            echo "needs_sync=false" >> $GITHUB_OUTPUT
+          else
+            echo "Tag ${{ inputs.tag }} not in origin — sync required"
+            echo "needs_sync=true" >> $GITHUB_OUTPUT
+          fi
+
   sync-upstream:
-    name: Sync from fork
+    name: Sync from upstream
+    needs: [check-tag]
+    if: needs.check-tag.outputs.needs_sync == 'true'
     uses: ./.github/workflows/seqera-sync-upstream.yml
     permissions:
       contents: write
 
   validate-patches:
     name: Validate Patches
-    needs: [sync-upstream]
+    needs: [check-tag, sync-upstream]
+    if: always() && needs.check-tag.result == 'success' && (needs.sync-upstream.result == 'success' || needs.sync-upstream.result == 'skipped')
     uses: ./.github/workflows/seqera-validate-patches.yml
     with:
       tag: ${{ inputs.tag }}
@@ -27,7 +48,7 @@ jobs:
 
   apply-patches:
     name: Apply Patches and Create Release
-    needs: [sync-upstream, validate-patches]
+    needs: [validate-patches]
     runs-on: ubuntu-latest
     permissions:
       contents: write
